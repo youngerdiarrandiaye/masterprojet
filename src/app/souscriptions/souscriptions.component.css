@@ -1,0 +1,89 @@
+/* Espacement entre les boutons */
+.toolbar button {
+  margin: 0 44px; /* Ajoute 10px de marge à gauche et à droite des boutons */
+  font-size: 12px; /* Taille de la police des boutons */
+  padding: 5px 5px; /* Ajustez le padding pour un bouton plus grand */
+}
+
+/* Styles pour les boutons d'icônes */
+.mat-icon-button {
+  font-size: 24px; /* Augmente la taille des icônes */
+  width: 30px; /* Largeur du bouton */
+  height: 30px; /* Hauteur du bouton */
+  transition: transform 0.3s; /* Transition pour l'animation */
+}
+.mat-badge{
+  padding: 8px 8px;
+}
+/* Styles généraux pour le conteneur */
+.container {
+  padding: 20px;
+}
+
+/* Styles pour le mat-card */
+.mat-card {
+  margin-bottom: 20px;
+}
+
+/* Styles pour la toolbar */
+.toolbar {
+  display: flex;
+  align-items: center; /* Centre verticalement les éléments */
+  padding: 10px 0; /* Ajoute un espacement vertical */
+}
+
+/* Effet au survol des boutons */
+.toolbar button:hover {
+  background-color: rgb(205, 211, 211); /* Ajoute un léger effet au survol */
+}
+
+/* Styles pour les badges */
+.mat-badge-content {
+  font-size: 12px; /* Taille de la police pour les badges */
+}
+
+/* Styles pour la table */
+.mat-table {
+  width: 100%; /* S'assure que la table utilise toute la largeur */
+  border-collapse: collapse; /* Supprime les espaces entre les cellules */
+}
+
+/* Styles pour les cellules de l'en-tête */
+.mat-header-cell {
+  background-color: #3f51b5; /* Couleur d'arrière-plan de l'en-tête */
+  color: white; /* Couleur du texte de l'en-tête */
+  font-weight: bold; /* Gras pour l'en-tête */
+}
+
+/* Styles pour les cellules de la table */
+.mat-cell {
+  padding: 10px; /* Espacement interne pour les cellules */
+  border-bottom: 1px solid #e0e0e0; /* Ligne séparatrice entre les lignes */
+}
+
+/* Hover sur les cellules de la table */
+.mat-cell:hover {
+  background-color: #f5f5f5; /* Couleur d'arrière-plan au survol */
+}
+
+/* Styles de pagination */
+.mat-paginator {
+  margin-top: 20px; /* Espacement supérieur pour la pagination */
+}
+
+/* Styles pour les icônes de statut */
+.status-active {
+  color: #006400; /* Couleur pour le statut actif */
+}
+
+.status-suspended {
+  color: #ffa500; /* Couleur pour le statut suspendu */
+}
+
+.status-terminated {
+  color: red; /* Couleur pour le statut résilié */
+}
+
+.search-container{
+  margin-top: 20px;
+}

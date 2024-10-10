@@ -1,0 +1,87 @@
+<div class="container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Load-student title</mat-card-title>
+    </mat-card-header>
+    <mat-divider></mat-divider>
+    <mat-card-content>
+      <!-- Contenu principal ici -->
+      <div class="content">
+        <h2>Dernières Feuilles de Soins</h2>
+        <table class="claims-table mat-elevation-z8">
+          <thead>
+          <tr>
+            <th><mat-icon>person</mat-icon> Patient</th>
+            <th><mat-icon>attach_money</mat-icon> Montant</th>
+            <th><mat-icon>assignment_turned_in</mat-icon> Statut</th>
+            <th><mat-icon>info</mat-icon> Plus d'infos</th> <!-- Nouvelle colonne pour les boutons -->
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td>Patient 1</td>
+            <td>$1,000.00</td>
+            <td><span class="status-validated">Validé</span></td>
+            <td>
+              <button mat-raised-button color="primary" class="more-info-button">
+                <mat-icon>info</mat-icon> Voir plus
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>Patient 2</td>
+            <td>$1,500.00</td>
+            <td><span class="status-pending">En attente</span></td>
+            <td>
+              <button mat-raised-button color="primary" class="more-info-button">
+                <mat-icon>info</mat-icon> Voir plus
+              </button>
+            </td>
+          </tr>
+          <!-- Ajoutez d'autres patients ici -->
+          </tbody>
+        </table>
+      </div>
+      <span class="spacer"></span>
+      <!-- Cartes statistiques sur une même ligne -->
+      <div class="cards-container">
+        <!-- Carte 1 -->
+        <mat-card class="stat-card gradient-card card-yellow">
+          <mat-card-header>
+            <mat-icon class="stat-icon">trending_up</mat-icon>
+            <mat-card-title>Statistique 1</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <p>Contenu statistique 1</p>
+          </mat-card-content>
+        </mat-card>
+
+        <!-- Carte 2 -->
+        <mat-card class="stat-card gradient-card card-blue">
+          <mat-card-header>
+            <mat-icon class="stat-icon">trending_down</mat-icon>
+            <mat-card-title>Statistique 2</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <p>Contenu statistique 2</p>
+          </mat-card-content>
+        </mat-card>
+
+        <!-- Carte 3 -->
+        <mat-card class="stat-card gradient-card card-purple">
+          <mat-card-header>
+            <mat-icon class="stat-icon">insert_chart</mat-icon>
+            <mat-card-title>Statistique 3</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <p>Contenu statistique 3</p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <span class="spacer"></span>
+      <!-- Chart cadre -->
+    </mat-card-content>
+  </mat-card>
+</div>
+
+

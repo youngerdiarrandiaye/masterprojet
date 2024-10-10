@@ -1,28 +1,117 @@
 {
-  "products": [
+  "subscriptions": [
     {
-      "name": "vanne",
-      "price": "888",
-      "checked": false,
-      "id": "15"
+      "id": "a450",
+      "fullName": "tafa",
+      "phone": "783665388",
+      "email": "youssoudiarrandiaye52@gmail.com",
+      "address": "Thies",
+      "dateOfBirth": "2024-09-30T00:00:00.000Z",
+      "CNI": "2222222222222",
+      "formula": "FORMULE 2 ARGENT (Plafond de 2 000 000F CFA par personne / 3 000 000F CFA par famille)",
+      "startDate": "2024-09-30T00:00:00.000Z",
+      "duration": "2",
+      "annualCeiling": "3",
+      "subscriptionFee": "4",
+      "status": "Active",
+      "paymentMode": "Mobile Payment",
+      "renewalDate": "2024-09-30T00:00:00.000Z",
+      "familyMembers": []
     },
     {
-      "name": "test",
-      "price": "600",
-      "checked": false,
-      "id": "16"
+      "id": "7c8b",
+      "fullName": "astou",
+      "phone": "783665387",
+      "email": "youssoudiarrandiaye52@gmail.com",
+      "address": "Thies",
+      "dateOfBirth": "2024-09-25T00:00:00.000Z",
+      "CNI": "7777777777777",
+      "formula": "FORMULE 2 ARGENT (Plafond de 2 000 000F CFA par personne / 3 000 000F CFA par famille)",
+      "startDate": "2024-09-30T00:00:00.000Z",
+      "duration": "2",
+      "annualCeiling": "3",
+      "subscriptionFee": "4",
+      "status": "Pending",
+      "paymentMode": "Mobile Payment",
+      "renewalDate": "2024-09-30T00:00:00.000Z",
+      "familyMembers": []
     },
     {
-      "id": "a6cc",
-      "name": "JEE",
-      "price": "8888",
-      "checked": false
+      "id": "8bfa",
+      "fullName": "diobass info",
+      "phone": "783665388",
+      "email": "youssoudiarrandiaye52@gmail.com",
+      "address": "Thies",
+      "dateOfBirth": "2024-09-30T00:00:00.000Z",
+      "CNI": "2222222222222",
+      "formula": "FORMULE 2 ARGENT (Plafond de 2 000 000F CFA par personne / 3 000 000F CFA par famille)",
+      "startDate": "2024-09-30T00:00:00.000Z",
+      "duration": "2",
+      "annualCeiling": "3",
+      "subscriptionFee": "4",
+      "status": "Active",
+      "paymentMode": "Mobile Payment",
+      "renewalDate": "2024-09-30T00:00:00.000Z",
+      "familyMembers": []
     },
     {
-      "id": "81e6",
-      "name": "test",
-      "price": 0,
-      "checked": true
+      "id": "3740",
+      "fullName": "diobass info",
+      "phone": "783665388",
+      "email": "youssoudiarrandiaye52@gmail.com",
+      "address": "Thies",
+      "dateOfBirth": "2024-09-20T00:00:00.000Z",
+      "CNI": "6666666666666",
+      "formula": "FORMULE 3 OR (Plafond de 4 000 000F CFA par personne / 6 000 000F CFA par famille)",
+      "startDate": "2024-09-20T00:00:00.000Z",
+      "duration": "5",
+      "annualCeiling": "6",
+      "subscriptionFee": "6",
+      "status": "Terminated",
+      "paymentMode": "Mobile Payment",
+      "renewalDate": "2024-09-30T00:00:00.000Z",
+      "familyMembers": []
+    },
+    {
+      "id": "e5cd",
+      "fullName": "sisi",
+      "phone": "783665366",
+      "email": "oussoudiarrandiaye52@gmail.com",
+      "address": "Thie",
+      "dateOfBirth": "2024-10-11T00:00:00.000Z",
+      "CNI": "7777777777777",
+      "formula": "FORMULE 3 OR (Plafond de 4 000 000F CFA par personne / 6 000 000F CFA par famille)",
+      "startDate": "2024-10-16T00:00:00.000Z",
+      "duration": "6",
+      "annualCeiling": "5",
+      "subscriptionFee": "5",
+      "status": "Suspended",
+      "paymentMode": "Mobile Payment",
+      "renewalDate": "2024-10-05T00:00:00.000Z",
+      "familyMembers": []
+    },
+    {
+      "id": "254e",
+      "fullName": "Bouh Sangare",
+      "phone": "781127922",
+      "email": "oudiarrandiaye52@gmail.com",
+      "address": "Thies",
+      "dateOfBirth": "1994-11-17T00:00:00.000Z",
+      "CNI": "1234567891988",
+      "formula": "FORMULE 1 BRONZE (Plafond de 1 000 000F CFA par personne / 1 500 000F CFA par famille)",
+      "startDate": "2024-10-01T00:00:00.000Z",
+      "duration": "1",
+      "annualCeiling": "11",
+      "subscriptionFee": "5555",
+      "status": "Active",
+      "paymentMode": "Mobile Payment",
+      "renewalDate": "2025-10-01T00:00:00.000Z",
+      "familyMembers": [
+        {
+          "relation": "conjoint",
+          "fullName": "AZA"
+        }
+      ]
     }
   ]
 }

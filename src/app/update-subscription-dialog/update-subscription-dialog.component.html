@@ -1,0 +1,102 @@
+<h2 mat-dialog-title class="dialog-title">
+  <mat-icon class="dialog-icon">edit</mat-icon>
+  Modifier la souscription
+</h2>
+<mat-dialog-content>
+  <form [formGroup]="subscriptionForm" (ngSubmit)="onSubmit()">
+    <!-- Champ ID de la Souscription (caché) -->
+    <input type="hidden" formControlName="id">
+    <mat-form-field appearance="outline">
+      <mat-label>Nom complet</mat-label>
+      <input matInput formControlName="fullName">
+      <mat-error *ngIf="subscriptionForm.get('fullName')?.invalid">Nom complet requis</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Téléphone</mat-label>
+      <input matInput formControlName="phone">
+      <mat-error *ngIf="subscriptionForm.get('phone')?.invalid">Numéro de téléphone valide requis</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email">
+      <mat-error *ngIf="subscriptionForm.get('email')?.invalid">Email valide requis</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Adresse</mat-label>
+      <input matInput formControlName="address">
+      <mat-error *ngIf="subscriptionForm.get('address')?.invalid">address valide requis</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Date de naissance</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="dateOfBirth">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>CNI</mat-label>
+      <input matInput formControlName="CNI">
+      <mat-error *ngIf="subscriptionForm.get('CNI')?.invalid">CNI valide requis</mat-error>
+    </mat-form-field>
+
+    <!-- Champ: Formule d'abonnement -->
+    <mat-form-field appearance="outline">
+      <mat-label>Formule</mat-label>
+      <mat-icon matPrefix>list</mat-icon>
+      <mat-select formControlName="formula">
+        <mat-option *ngFor="let formula of formulas" [value]="formula">{{ formula }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Date de début</mat-label>
+      <input matInput [matDatepicker]="picker2" formControlName="startDate">
+      <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+      <mat-datepicker #picker2></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Durée</mat-label>
+      <input matInput formControlName="duration">
+      <mat-error *ngIf="subscriptionForm.get('duration')?.invalid">duration valide requis</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Montant de la prime</mat-label>
+      <input matInput formControlName="subscriptionFee" type="number">
+      <mat-error *ngIf="subscriptionForm.get('subscriptionFee')?.invalid">coût de la souscription valide requis</mat-error>
+    </mat-form-field>
+
+    <!-- Champ: Statut de souscription -->
+    <mat-form-field appearance="outline">
+      <mat-label>Statut de la Souscription</mat-label>
+      <mat-icon matPrefix>check_circle</mat-icon>
+      <mat-select formControlName="status" required>
+        <mat-option *ngFor="let status of subscriptionStatuses" [value]="status">{{ status }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <!-- Champ: Mode de paiement -->
+    <mat-form-field appearance="outline">
+      <mat-label>Mode de Paiement</mat-label>
+      <mat-icon matPrefix>payment</mat-icon>
+      <mat-select formControlName="paymentMode" required>
+        <mat-option *ngFor="let mode of paymentModes" [value]="mode">{{ mode }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Date de renouvellement</mat-label>
+      <input matInput [matDatepicker]="picker3" formControlName="renewalDate">
+      <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+      <mat-datepicker #picker3></mat-datepicker>
+    </mat-form-field>
+
+    <button mat-button type="submit" [disabled]="subscriptionForm.invalid">Enregistrer</button>
+    <button mat-button type="button" mat-dialog-close>Annuler</button>
+  </form>
+</mat-dialog-content>

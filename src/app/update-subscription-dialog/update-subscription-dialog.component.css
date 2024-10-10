@@ -1,0 +1,101 @@
+/* Styles généraux pour le dialog */
+.mat-dialog-content {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+}
+
+/* Titre du dialog */
+.mat-dialog-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #3f51b5; /* Couleur principale */
+  margin-bottom: 20px;
+}
+
+/* Style du formulaire */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Champ du formulaire */
+.mat-form-field {
+  margin-bottom: 16px;
+  position: relative; /* Positionner les éléments relatifs */
+}
+
+/* Labels des champs */
+.mat-label {
+  font-weight: 500;
+  color: #333; /* Couleur des labels */
+}
+
+/* Styles pour les champs d'entrée */
+.mat-input-element {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 10px;
+  transition: border-color 0.3s ease; /* Transition douce */
+}
+
+/* État d'accentuation des champs */
+.mat-input-element:focus {
+  border-color: #3f51b5; /* Couleur d'accentuation */
+  box-shadow: 0 0 5px rgba(63, 81, 181, 0.5); /* Ombre portée */
+}
+
+/* Styles pour les erreurs */
+.mat-error {
+  color: #f44336; /* Couleur rouge pour les messages d'erreur */
+  font-size: 12px;
+}
+
+/* Boutons */
+button {
+  margin-top: 16px;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+/* Bouton d'enregistrement */
+button[type="submit"] {
+  background-color: #3f51b5; /* Couleur principale */
+  color: white;
+  border: none;
+}
+
+/* État d'accentuation du bouton d'enregistrement */
+button[type="submit"]:hover {
+  background-color: #303f9f; /* Couleur plus foncée au survol */
+}
+
+/* Bouton d'annulation */
+button[mat-dialog-close] {
+  background-color: #f44336; /* Couleur rouge pour annuler */
+  color: white;
+  border: none;
+}
+
+/* État d'accentuation du bouton d'annulation */
+button[mat-dialog-close]:hover {
+  background-color: #d32f2f; /* Couleur plus foncée au survol */
+}
+
+.dialog-title {
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: #3f51b5;
+  margin-bottom: 20px;
+}
+
+.dialog-icon {
+  margin-right: 8px;
+  font-size: 30px;
+  color: #3f51b5;
+}
+

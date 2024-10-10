@@ -1,0 +1,107 @@
+<div class="container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Gestion des Souscriptions</mat-card-title>
+    </mat-card-header>
+    <mat-divider></mat-divider>
+    <mat-card-content>
+      <mat-toolbar color="primary" class="toolbar">
+        <button mat-raised-button color="accent" (click)="openSubscriptionDialog()">Souscrire</button>
+        <!-- Bouton pour les souscriptions actives -->
+        <button mat-icon-button class="status-button" (click)="filterByStatus('Active')">
+          <mat-icon>check_circle</mat-icon>
+          <mat-badge [matBadge]="activeCount" matBadgeColor="accent" matBadgePosition="above after">
+            Actives
+          </mat-badge>
+        </button>
+
+        <!-- Bouton pour les souscriptions suspendues -->
+        <button mat-icon-button class="status-button" (click)="filterByStatus('Suspended')">
+          <mat-icon>pause_circle_filled</mat-icon>
+          <mat-badge [matBadge]="suspendueCount" matBadgeColor="accent" matBadgePosition="above after">
+            Suspendues
+          </mat-badge>
+        </button>
+
+        <!-- Bouton pour les souscriptions résiliées -->
+        <button mat-icon-button  class="status-button"(click)="filterByStatus('Pending')">
+          <mat-icon>cancel</mat-icon>
+          <mat-badge [matBadge]="pendingCount" matBadgeColor="accent" matBadgePosition="above after">
+            Réjeté
+          </mat-badge>
+        </button>
+
+        <!-- Bouton pour réinitialiser le filtre -->
+        <button mat-icon-button (click)="resetFilter()" class="status-button">
+          <mat-icon>refresh</mat-icon>
+          <mat-tooltip matTooltip="Réinitialiser le filtre">Réinitialiser</mat-tooltip>
+        </button>
+      </mat-toolbar>
+      <span class="spacer"></span>
+      <div class="search-container">
+        <mat-form-field appearance="outline">
+          <mat-label>Rechercher</mat-label>
+          <input matInput (input)="applyFilter($event)" placeholder="Rechercher une souscription">
+          <mat-icon matSuffix>search</mat-icon>
+        </mat-form-field>
+      </div>
+
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+
+        <!-- Nom Complet Column -->
+        <ng-container matColumnDef="fullName">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Nom Complet</th>
+          <td mat-cell *matCellDef="let subscription">{{ subscription.fullName }}</td>
+        </ng-container>
+
+        <!-- Téléphone Column -->
+        <ng-container matColumnDef="phone">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Téléphone</th>
+          <td mat-cell *matCellDef="let subscription">{{ subscription.phone }}</td>
+        </ng-container>
+
+        <!-- Email Column
+        <ng-container matColumnDef="email">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Email</th>
+          <td mat-cell *matCellDef="let subscription">{{ subscription.email }}</td>
+        </ng-container>
+        -->
+
+
+        <!-- Statut Column -->
+        <ng-container matColumnDef="status">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Statut</th>
+          <td mat-cell *matCellDef="let subscription">
+            <mat-icon [ngClass]="{'status-active': subscription.status === 'Active', 'status-suspended': subscription.status === 'Suspended', 'status-terminated': subscription.status === 'Terminated'}">
+              {{ getStatusIcon(subscription.status) }}
+            </mat-icon>
+            {{ subscription.status }}
+          </td>
+        </ng-container>
+
+
+        <!-- Actions Column -->
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef>Actions</th>
+          <td mat-cell *matCellDef="let subscription">
+            <button mat-icon-button color="primary" (click)="editSubscription(subscription)" matTooltip="Modifier">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button color="warn" (click)="deleteSubscription(subscription)" matTooltip="Supprimer">
+              <mat-icon>delete</mat-icon>
+            </button>
+            <button mat-icon-button color="accent" (click)="openDetailsDialog(subscription)" matTooltip="Détails">
+              <mat-icon>info</mat-icon> <!-- Changer l'icône à "info" pour détails -->
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+
+      <!-- Pagination -->
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    </mat-card-content>
+  </mat-card>
+</div>

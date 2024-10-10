@@ -1,0 +1,30 @@
+<h2 mat-dialog-title class="dialog-title">Détails de la souscription</h2>
+
+<mat-dialog-content class="dialog-content">
+  <div class="subscription-info">
+    <p><strong>Nom Complet :</strong> {{ data.fullName }}</p>
+    <p><strong>Téléphone :</strong> {{ data.phone }}</p>
+    <p><strong>Email :</strong> {{ data.email }}</p>
+    <p><strong>Formule :</strong> {{ data.formula }}</p>
+    <p><strong>Statut :</strong>
+      <span class="status" [ngClass]="getStatusClass(data.status)">
+        {{ data.status }}
+      </span>
+    </p>
+    <p><strong>Date de Renouvellement :</strong> {{ data.renewalDate | date:'dd/MM/yyyy' }}</p>
+  </div>
+
+  <div *ngIf="data.familyMembers && data.familyMembers.length > 0" class="family-members">
+    <h3>Membres de la famille :</h3>
+    <ul>
+      <li *ngFor="let member of data.familyMembers">
+        {{ member.fullName }} - {{ member.relation }}
+      </li>
+    </ul>
+  </div>
+</mat-dialog-content>
+
+<mat-dialog-actions class="dialog-actions">
+  <button mat-button mat-dialog-close class="blinking-button">Fermer</button>
+</mat-dialog-actions>
+

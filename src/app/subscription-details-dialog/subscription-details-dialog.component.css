@@ -1,0 +1,114 @@
+.dialog-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #3f51b5;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.dialog-content {
+  font-size: 16px;
+  color: #333;
+}
+
+.subscription-info p {
+  margin: 10px 0;
+  line-height: 1.6;
+}
+
+h3 {
+  margin-top: 20px;
+  color: #3f51b5;
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+li {
+  margin-bottom: 5px;
+}
+
+.status {
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.status.active {
+  color: #ffffff;
+  background-color: #4caf50; /* Vert pour actif */
+}
+
+.status.suspended {
+  color: #ffffff;
+  background-color: #ff9800; /* Orange pour suspendu */
+}
+
+.status.terminated {
+  color: #ffffff;
+  background-color: #f44336; /* Rouge pour terminé */
+}
+
+.dialog-actions {
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.close-button {
+  background-color: #3f51b5;
+  color: white;
+  font-weight: bold;
+}
+
+.close-button:hover {
+  background-color: #303f9f;
+}
+
+/* Clignotement de 1 seconde */
+@keyframes clignote {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.blinking-button {
+  animation: clignote 1s infinite;
+  background-color: #3f51b5;
+  color: white;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.blinking-button:hover {
+  background-color: #303f9f; /* Couleur plus sombre au survol */
+  animation: none; /* Arrêter le clignotement au survol */
+}
+
+/* Classes pour les statuts avec clignotement */
+.status-active {
+  color: green;
+  font-weight: bold;
+  animation: clignote 1s infinite;
+}
+
+.status-suspended {
+  color: orange;
+  font-weight: bold;
+  animation: clignote 1s infinite;
+}
+
+.status-terminated {
+  color: red;
+  font-weight: bold;
+  animation: clignote 1s infinite;
+}

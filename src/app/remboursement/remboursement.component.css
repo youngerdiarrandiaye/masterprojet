@@ -1,0 +1,101 @@
+.container {
+  padding: 20px;
+}
+
+.mat-form-field {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.mat-elevation-z8 {
+  margin-bottom: 20px;
+}
+
+.status-en-attente {
+  color: #ffa500;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 2px solid #ffa500;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: inline-flex;
+  align-items: center;
+}
+
+.status-approuve {
+  color: #006400;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 2px solid darkgreen;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: inline-flex;
+  align-items: center;
+  animation: clignote 1s infinite;
+}
+
+/* Animation clignotante pour le statut approuvé */
+@keyframes clignote {
+  0% { opacity: 1; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+
+.status-rejete {
+  color: red;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 2px solid #ff0000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: inline-flex;
+  align-items: center;
+}
+
+.toolbar {
+  background-color: #3f51b5;
+}
+
+.mat-toolbar button {
+  font-size: 0.8rem; /* Adjust the size as needed */
+  margin: 30px;
+}
+
+.mat-tooltip {
+  font-size: 0.8rem; /* Adjust the size of the tooltip text as needed */
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+/* Agrandir les boutons d'action */
+.mat-icon-button {
+  font-size: 12px; /* Taille de l'icône */
+  width: 48px;
+  height: 48px;
+}
+
+.mat-icon-button:hover {
+  transform: scale(1.2); /* Agrandir un peu au survol */
+  transition: transform 0.3s;
+}
+
+.mat-badge-content {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.status-en-attente,
+.status-approuve,
+.status-rejete {
+  padding: 3px;
+  border-radius: 5px;
+}
+
+.mat-badge{
+  padding: 4px 4px;
+}

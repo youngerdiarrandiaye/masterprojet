@@ -1,0 +1,28 @@
+.spacer{
+  flex: auto;
+}
+
+/* side menue */
+
+.mat-drawer-primary {
+  background: linear-gradient(165deg, rgba(63, 81, 180, 0.84), rgba(63, 81, 180, 0.94));
+  color: white; /* Couleur du texte */
+}
+
+.nav-button{
+  color: white; /* Couleur du texte */
+  font-family:Poppins;
+}
+.mat-drawer-primary .mat-icon{
+  color: white; /* Couleur  */
+  font-size: 20px;
+  margin-right:11px;
+}
+.nav-button:hover{
+  color: #f5f5f5; /* Couleur du texte */
+  background-color: #ff03b8; /* Effet au survol */
+}
+
+
+
+

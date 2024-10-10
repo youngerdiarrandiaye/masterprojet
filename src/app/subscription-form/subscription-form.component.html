@@ -1,0 +1,155 @@
+<mat-dialog-content>
+  <div class="subscription-header">
+    <mat-icon class="subscription-icon">assignment</mat-icon>
+    remplissez les détails ci-dessous
+  </div>
+
+  <form [formGroup]="subscriptionForm" (ngSubmit)="onSubmit()">
+    <!-- Champ: Nom complet -->
+    <mat-form-field appearance="outline">
+      <mat-label>Nom Complet</mat-label>
+      <mat-icon matPrefix>person</mat-icon>
+      <input matInput formControlName="fullName" placeholder="Entrez le nom complet" required>
+    </mat-form-field>
+
+    <!-- Champ: Téléphone -->
+    <mat-form-field appearance="outline">
+      <mat-label>Téléphone</mat-label>
+      <mat-icon matPrefix>phone</mat-icon>
+      <input matInput formControlName="phone" placeholder="Entrez le numéro de téléphone" required>
+    </mat-form-field>
+
+    <!-- Champ: Email -->
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" (blur)="markEmailAsTouched()">
+      <mat-error *ngIf="subscriptionForm.get('email')?.hasError('required') && subscriptionForm.get('email')?.touched">
+        Email requis
+      </mat-error>
+      <mat-error *ngIf="subscriptionForm.get('email')?.hasError('email') && subscriptionForm.get('email')?.touched">
+        Email invalide
+      </mat-error>
+      <mat-error *ngIf="subscriptionForm.get('email')?.hasError('emailExists') && subscriptionForm.get('email')?.touched">
+        Cet email est déjà utilisé
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Champ: Adresse (Optionnel) -->
+    <mat-form-field appearance="outline">
+      <mat-label>Adresse</mat-label>
+      <mat-icon matPrefix>home</mat-icon>
+      <input matInput formControlName="address" placeholder="Entrez l'adresse (optionnel)">
+    </mat-form-field>
+
+    <!-- Champ: Date de Naissance -->
+    <mat-form-field appearance="outline">
+      <mat-label>Date de Naissance</mat-label>
+      <mat-icon matPrefix>calendar_today</mat-icon>
+      <input matInput [matDatepicker]="picker" formControlName="dateOfBirth" placeholder="Sélectionnez la date de naissance" required>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <!-- Champ: CNI (Optionnel) -->
+    <mat-form-field appearance="outline">
+      <mat-label>Carte d'identité</mat-label>
+      <mat-icon matPrefix>badge</mat-icon>
+      <input matInput formControlName="CNI" placeholder="Entrez le numéro de carte d'identité (optionnel)">
+    </mat-form-field>
+
+    <!-- Champ: Formule d'abonnement -->
+    <mat-form-field appearance="outline">
+      <mat-label>Formule</mat-label>
+      <mat-icon matPrefix>list</mat-icon>
+      <mat-select formControlName="formula">
+        <mat-option *ngFor="let formula of formulas" [value]="formula">{{ formula }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <!-- Champ: Date de début -->
+    <mat-form-field appearance="outline">
+      <mat-label>Date de début</mat-label>
+      <mat-icon matPrefix>calendar_today</mat-icon>
+      <input matInput [matDatepicker]="startPicker" formControlName="startDate" placeholder="Sélectionnez la date de début" required>
+      <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
+      <mat-datepicker #startPicker></mat-datepicker>
+    </mat-form-field>
+
+    <!-- Champ: Durée de la souscription -->
+    <mat-form-field appearance="outline">
+      <mat-label>Durée</mat-label>
+      <mat-icon matPrefix>timer</mat-icon>
+      <input matInput formControlName="duration" placeholder="Exemple : 1 an" required>
+    </mat-form-field>
+
+    <!-- Champ: Plafond annuel -->
+    <mat-form-field appearance="outline">
+      <mat-label>Plafond Annuel (F CFA)</mat-label>
+      <mat-icon matPrefix>attach_money</mat-icon>
+      <input matInput formControlName="annualCeiling" placeholder="Entrez le plafond annuel" required>
+    </mat-form-field>
+
+    <!-- Champ: Montant de la prime -->
+    <mat-form-field appearance="outline">
+      <mat-label>Montant de la Prime (F CFA)</mat-label>
+      <mat-icon matPrefix>money</mat-icon>
+      <input matInput formControlName="subscriptionFee" placeholder="Entrez le montant de la prime" required>
+    </mat-form-field>
+
+    <!-- Champ: Mode de paiement -->
+    <mat-form-field appearance="outline">
+      <mat-label>Mode de Paiement</mat-label>
+      <mat-icon matPrefix>payment</mat-icon>
+      <mat-select formControlName="paymentMode" required>
+        <mat-option *ngFor="let mode of paymentModes" [value]="mode">{{ mode }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <!-- Champ: Statut de souscription -->
+    <mat-form-field appearance="outline">
+      <mat-label>Statut de la Souscription</mat-label>
+      <mat-icon matPrefix>check_circle</mat-icon>
+      <mat-select formControlName="status" required>
+        <mat-option *ngFor="let status of subscriptionStatuses" [value]="status">{{ status }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <!-- Champ: Date de renouvellement -->
+    <mat-form-field appearance="outline">
+      <mat-label>Date de Renouvellement</mat-label>
+      <mat-icon matPrefix>calendar_today</mat-icon>
+      <input matInput [matDatepicker]="renewalPicker" formControlName="renewalDate" placeholder="Sélectionnez la date de renouvellement" required>
+      <mat-datepicker-toggle matSuffix [for]="renewalPicker"></mat-datepicker-toggle>
+      <mat-datepicker #renewalPicker></mat-datepicker>
+    </mat-form-field>
+
+    <!-- Membres de la Famille -->
+    <h3>Membres de la Famille</h3>
+    <div formArrayName="familyMembers">
+      <div *ngFor="let member of familyMembers.controls; let i = index" [formGroupName]="i">
+        <mat-form-field appearance="outline">
+          <mat-label>Relation</mat-label>
+          <mat-icon matPrefix>group</mat-icon>
+          <mat-select formControlName="relation">
+            <mat-option value="enfant">Enfant</mat-option>
+            <mat-option value="conjoint">Conjoint</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Nom Complet</mat-label>
+          <mat-icon matPrefix>person_add</mat-icon>
+          <input matInput formControlName="fullName" placeholder="Nom du membre" required>
+        </mat-form-field>
+
+        <button mat-button (click)="removeFamilyMember(i)">Supprimer</button>
+      </div>
+    </div>
+
+    <!-- Boutons pour ajouter un membre et soumettre -->
+    <button mat-button class="add-member-button" (click)="addFamilyMember()" type="button">
+      <mat-icon>add</mat-icon> Ajouter Membre
+    </button>
+    <button mat-button type="submit"  color="primary" [disabled]="subscriptionForm.invalid">Souscrire</button>
+  </form>
+</mat-dialog-content>

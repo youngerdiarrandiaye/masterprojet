@@ -1,0 +1,98 @@
+<div class="container">
+  <mat-card>
+    <mat-card-header>
+    </mat-card-header>
+    <mat-divider></mat-divider>
+    <mat-card-content>
+      <mat-toolbar color="primary" class="toolbar">
+        <span>Gestion des Remboursements</span>
+        <!-- Button for pending reimbursements -->
+        <button mat-icon-button (click)="filterByStatus('En attente')">
+          <mat-icon>hourglass_empty</mat-icon>
+          <mat-badge [matBadge]="enAttenteCount" matBadgeColor="accent" matBadgePosition="above after">
+            En attente
+          </mat-badge>
+        </button>
+        <!-- Button for approved reimbursements -->
+        <button mat-icon-button (click)="filterByStatus('Approuvé')">
+          <mat-icon>check_circle</mat-icon>
+          <mat-badge [matBadge]="approuveCount" matBadgeColor="accent" matBadgePosition="above after">
+            Approuvés
+          </mat-badge>
+        </button>
+        <!-- Button for rejected reimbursements -->
+        <button mat-icon-button (click)="filterByStatus('Rejeté')">
+          <mat-icon>cancel</mat-icon>
+          <mat-badge [matBadge]="rejeteCount" matBadgeColor="accent" matBadgePosition="above after">
+            Rejetés
+          </mat-badge>
+        </button>
+
+        <!-- Button for resetting filter -->
+        <button mat-icon-button (click)="resetFilter()">
+          <mat-icon>refresh</mat-icon>
+          <mat-tooltip matTooltip="Réinitialiser le filtre">Réinitialiser</mat-tooltip>
+        </button>
+      </mat-toolbar>
+
+      <div class="container">
+        <!-- Search Bar -->
+        <mat-form-field appearance="outline">
+          <mat-label>Rechercher</mat-label>
+          <input matInput (input)="applyFilter($event)" placeholder="Rechercher un remboursement">
+          <mat-icon matSuffix>search</mat-icon>
+        </mat-form-field>
+
+        <h2>Liste des Remboursements</h2>
+        <table mat-table [dataSource]="filteredDataSource" class="mat-elevation-z8" matSort>
+
+          <!-- Patient Column -->
+          <ng-container matColumnDef="patient">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Patient</th>
+            <td mat-cell *matCellDef="let remboursement">{{remboursement.patient}}</td>
+          </ng-container>
+
+          <!-- Amount Column -->
+          <ng-container matColumnDef="montant">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Montant</th>
+            <td mat-cell *matCellDef="let remboursement">{{remboursement.montant | currency}}</td>
+          </ng-container>
+
+          <!-- Status Column -->
+          <ng-container matColumnDef="statut">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Statut</th>
+            <td mat-cell *matCellDef="let remboursement">
+              <span [ngClass]="{
+                'status-en-attente': remboursement.statut === 'En attente',
+                'status-approuve': remboursement.statut === 'Approuvé',
+                'status-rejete': remboursement.statut === 'Rejeté'
+              }">{{ remboursement.statut }}</span>
+            </td>
+          </ng-container>
+
+          <!-- Actions Column -->
+          <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef>Actions</th>
+            <td mat-cell *matCellDef="let remboursement">
+              <button mat-icon-button color="primary" (click)="voirDetails(remboursement)" matTooltip="Voir plus">
+                <mat-icon>visibility</mat-icon>
+              </button>
+              <button mat-icon-button color="accent" (click)="approuver(remboursement)" matTooltip="Approuver">
+                <mat-icon>check_circle</mat-icon>
+              </button>
+              <button mat-icon-button color="warn" (click)="rejeter(remboursement)" matTooltip="Rejeter">
+                <mat-icon>cancel</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
+        <!-- Pagination -->
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

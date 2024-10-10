@@ -1,0 +1,106 @@
+/* Style du contenu du dialogue */
+mat-dialog-content {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  max-width: 500px; /* Réduction de la largeur maximale du formulaire */
+}
+
+/* Style des champs de formulaire */
+mat-form-field {
+  width: 100%;
+  margin-bottom: 22px; /* Réduction de l'espacement vertical */
+}
+
+/* Style pour le label */
+mat-label {
+  font-weight: bold;
+  color: #333;
+}
+
+/* Style des boutons */
+button {
+  margin-top: 10px;
+}
+
+/* Style du bouton principal */
+.mat-raised-button {
+  background-color: #007bff; /* Couleur de fond */
+  color: white; /* Couleur du texte */
+  transition: background-color 0.3s;
+}
+
+.mat-raised-button:hover {
+  background-color: #0056b3; /* Couleur au survol */
+}
+
+/* Style pour le bouton "Ajouter Membre" */
+.add-member-button {
+  display: flex;
+  align-items: center;
+  margin-top: 10px; /* Espacement au-dessus du bouton */
+}
+
+/* Style des icônes dans les champs de formulaire */
+.mat-form-field-icon {
+  position: absolute;
+  right: 10px;
+  top: 15px;
+  color: #007bff;
+  font-size: 18px;
+}
+
+/* Style des icônes dans les boutons */
+.mat-button {
+  display: flex;
+  align-items: center;
+}
+
+.mat-button mat-icon {
+  margin-right: 8px; /* Espace entre l'icône et le texte */
+}
+
+/* Style pour les sections de membres de la famille */
+h3 {
+  margin: 20px 0 10px;
+  font-weight: bold;
+  color: #444;
+}
+
+
+/* Styles pour le bouton "Ajouter Membre" */
+.add-member-button {
+  background-color: #4CAF50; /* Vert */
+  color: white;
+  margin-right: 10px; /* Espacement avec le bouton suivant */
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-size: 14px;
+  display: flex;
+  align-items: center; /* Aligner le texte et l'icône verticalement */
+}
+
+.add-member-button mat-icon {
+  margin-right: 8px; /* Espacement entre l'icône et le texte */
+}
+
+/* Styles pour le bouton "Souscrire" */
+button[type="submit"] {
+  background-color: #2196F3; /* Bleu primaire */
+  color: white;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* Styles de survol pour les deux boutons */
+button.mat-button:hover {
+  opacity: 0.9; /* Légère transparence lors du survol */
+}
+
+/* Désactivation du bouton "Souscrire" quand le formulaire est invalide */
+button[type="submit"]:disabled {
+  background-color: #B0BEC5; /* Gris clair pour le bouton désactivé */
+  cursor: not-allowed;
+}
