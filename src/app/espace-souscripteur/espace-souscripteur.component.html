@@ -1,0 +1,73 @@
+<mat-toolbar color="primary" class="toolbar" style="background-color: rgb(230, 235, 243);">
+  <!-- Bouton pour ouvrir/fermer le menu latéral -->
+  <button mat-icon-button (click)="drawer.toggle()">
+    <mat-icon style="color: #0c419a;">menu</mat-icon>
+  </button>
+
+  <!-- Logo -->
+  <img src="assets/images/futuremaman.png" alt="Logo" class="logo" />
+
+  <span class="spacer"></span>
+
+  <!-- Boutons de profil et notifications -->
+  <button mat-icon-button aria-label="Notifications">
+    <mat-icon style="color: rgb(12, 65, 154);">notifications</mat-icon>
+  </button>
+
+  <button mat-icon-button aria-label="Profil">
+    <mat-icon style="color: rgb(12, 65, 154);">account_circle</mat-icon>
+  </button>
+
+  <button mat-raised-button color="accent" class="logout-button" style="background-color: rgb(12, 65, 154); color: white;">
+    <mat-icon>exit_to_app</mat-icon>Déconnexion
+  </button>
+</mat-toolbar>
+
+<mat-drawer-container class="banner-background" style="height: 100vh; font-size: 14px; background: #eee;">
+  <!-- Menu latéral -->
+  <mat-drawer #drawer mode="side" position="start" [opened]="true" class="mat-drawer-primary" style="background: #ffffff; color: #063274; height: 300px;">
+    <mat-nav-list>
+      <mat-list-item>
+        <button mat-button routerLink="/home-souscripteur" class="nav-button" style="color: #063274;">
+          <mat-icon style="color: rgb(12, 65, 154);">home</mat-icon>
+          <span>Accueil</span>
+        </button>
+      </mat-list-item>
+      <mat-list-item>
+        <button mat-button routerLink="" class="nav-button" style="color: #063274;">
+          <mat-icon style="color: rgb(12, 65, 154);">hourglass_empty</mat-icon>
+          <span>Remboursements</span>
+        </button>
+      </mat-list-item>
+      <mat-list-item>
+        <button mat-button routerLink="" class="nav-button" style="color: #063274;">
+          <mat-icon style="color: rgb(12, 65, 154);">euro_symbol</mat-icon>
+          <span>Factures</span>
+        </button>
+      </mat-list-item>
+      <mat-list-item>
+        <button mat-button routerLink="" class="nav-button" style="color: #063274;">
+          <mat-icon style="color: rgb(12, 65, 154);">people</mat-icon>
+          <span>Les visites</span>
+        </button>
+      </mat-list-item>
+      <mat-list-item>
+        <button mat-button routerLink="" class="nav-button" style="color: #063274;">
+          <mat-icon style="color: rgb(12, 65, 154);">assignment_late</mat-icon>
+          <span>Demandes en attente</span>
+        </button>
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-drawer>
+
+  <mat-drawer-content style="background: #eee;">
+    <div style="min-height: 100px; padding: 1rem;">
+      <!-- Contenu principal chargé via routing -->
+      <router-outlet></router-outlet>
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>
+
+<footer class="footer" style="color: rgb(255, 255, 255); text-align: center; padding: 1rem;">
+  <p>Informations légales et support</p>
+</footer>

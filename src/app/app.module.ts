@@ -8,7 +8,13 @@ import {MatToolbar, MatToolbarModule} from "@angular/material/toolbar";
 import {MatButton, MatButtonModule} from "@angular/material/button";
 import {MatIcon, MatIconModule} from "@angular/material/icon";
 import {MatMenu, MatMenuItem, MatMenuModule, MatMenuTrigger} from "@angular/material/menu";
-import {MatDrawer, MatDrawerContainer, MatDrawerContent} from "@angular/material/sidenav";
+import {
+  MatDrawer,
+  MatDrawerContainer,
+  MatDrawerContent,
+  MatSidenav,
+  MatSidenavContainer, MatSidenavModule
+} from "@angular/material/sidenav";
 import {MatList, MatListItem, MatNavList} from "@angular/material/list";
 import {ProfessionelDeSanteComponent} from "./professionel-de-sante/professionel-de-sante.component";
 import {AgentAssuranceTemplateComponent} from "./agent-assurance-template/agent-assurance-template.component";
@@ -44,6 +50,13 @@ import {MatNativeDateModule} from "@angular/material/core";
 import {HttpClientModule} from "@angular/common/http";
 import { SubscriptionFormComponent } from './subscription-form/subscription-form.component';
 import { SubscriptionDetailsDialogComponent } from './subscription-details-dialog/subscription-details-dialog.component';
+import { EspaceSouscripteurComponent } from './espace-souscripteur/espace-souscripteur.component';
+import {BaseChartDirective} from "ng2-charts";
+import {NgOptimizedImage} from "@angular/common";
+import { EspaceMaterniteComponent } from './espace-maternite/espace-maternite.component';
+import { HomeSouscripteurComponent } from './home-souscripteur/home-souscripteur.component';
+import { DeclarationGrossesseComponent } from './declaration-grossesse/declaration-grossesse.component';
+import { AjouterPatientComponent } from './ajouter-patient/ajouter-patient.component';
 
 
 @NgModule({
@@ -60,7 +73,12 @@ import { SubscriptionDetailsDialogComponent } from './subscription-details-dialo
     HomeComponent,
     UpdateSubscriptionDialogComponent,
     SubscriptionFormComponent,
-    SubscriptionDetailsDialogComponent
+    SubscriptionDetailsDialogComponent,
+    EspaceSouscripteurComponent,
+    EspaceMaterniteComponent,
+    HomeSouscripteurComponent,
+    DeclarationGrossesseComponent,
+    AjouterPatientComponent
   ],
   imports: [
     BrowserModule,
@@ -104,6 +122,11 @@ import { SubscriptionDetailsDialogComponent } from './subscription-details-dialo
     MatSnackBarModule,
     MatNativeDateModule,
     HttpClientModule,
+    BaseChartDirective,
+    NgOptimizedImage,
+    MatSidenavContainer,
+    MatSidenavModule,
+
 
   ],
   providers: [

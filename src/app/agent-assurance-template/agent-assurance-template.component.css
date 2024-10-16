@@ -5,7 +5,7 @@
 /* side menue */
 
 .mat-drawer-primary {
-  background: linear-gradient(165deg, rgba(63, 81, 180, 0.84), rgba(63, 81, 180, 0.94));
+  background: linear-gradient(165deg, rgb(159, 170, 227), rgb(158, 167, 220));
   color: white; /* Couleur du texte */
 }
 

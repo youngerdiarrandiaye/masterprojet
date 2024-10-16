@@ -1,0 +1,95 @@
+/* Styles pour la barre d'outils */
+.toolbar {
+  display: flex;
+  align-items: center;
+  background: #a9b9d5;
+  padding: 0 16px;
+}
+
+/* Logo : adaptabilité */
+.logo {
+  height: 40px;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.footer {
+  background: #a9b9d5;
+  color: rgb(205, 211, 211);
+  padding: 20px;
+  text-align: center;
+}
+
+/* Effet de survol pour les boutons */
+.nav-button:hover {
+  color: #f5f5f5;
+  background-color: #ff03b8;
+}
+
+.nav-button {
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+/* Responsivité */
+@media (max-width: 1024px) {
+  /* Toolbar : Ajustements pour écrans intermédiaires */
+  .toolbar {
+    flex-direction: column;
+  }
+
+  .toolbar img.logo {
+    height: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Menu latéral et toolbar */
+  .toolbar img.logo {
+    display: none;
+  }
+
+  .nav-button span {
+    display: block; /* afficher
+     le texte dans le menu pour les petits écrans */
+  }
+
+  mat-drawer {
+    width: 250px; /* Taille du menu plus petite sur mobile */
+    display: block;
+  }
+
+  /* Alignement vertical pour le menu */
+  .nav-button {
+    justify-content: center;
+  }
+
+  .toolbar {
+    padding: 0 8px;
+  }
+
+  .logout-button {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Mobile extra petit */
+  mat-drawer {
+    width: 200px;
+    display: block;
+  }
+
+  .toolbar {
+    padding: 0 4px;
+  }
+
+  .nav-button {
+    padding: 4px 8px;
+  }
+}

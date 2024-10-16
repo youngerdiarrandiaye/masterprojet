@@ -1,0 +1,25 @@
+<div>
+  <h2>Déclaration de grossesse</h2>
+
+  <form (ngSubmit)="faireDeclarationGrossesse()">
+    <label>Sélectionner un patient :</label>
+    <select [(ngModel)]="patientId" name="patient" required>
+      <option value="" disabled>Sélectionner un patient</option>
+      <option *ngFor="let patient of patients" [value]="patient.id">{{ patient.nomComplet }}</option>
+    </select>
+
+    <label>Date des dernières règles :</label>
+    <input type="date" [(ngModel)]="dateDernieresRegles" name="dateDernieresRegles" required>
+
+    <button type="submit">Déclarer la grossesse</button>
+  </form>
+
+  <div *ngIf="visites.length > 0">
+    <h3>Visites planifiées :</h3>
+    <ul>
+      <li *ngFor="let visite of visites">
+        {{ visite.date | date:'dd/MM/yyyy' }} - {{ visite.type }}
+      </li>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,230 @@
+/* Conteneur principal centré et responsive */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  padding: 0; /* Enlève le padding par défaut */
+}
+
+.centered-card {
+  width: 100%;
+  border-radius: 15px;
+  background-color: rgba(229, 225, 228, 0.34);
+  box-shadow: 0 4px 8px rgba(1, 8, 19, 0.24);
+  max-width: 1200px;
+  margin-top: 0; /* Assure qu'il n'y ait pas d'espace au-dessus */
+  padding: 0; /* Enlève le padding à l'intérieur de la carte */
+}
+
+/* Style pour les cartes statistiques */
+.cards-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  width: 100%;
+  max-width: 1200px;
+  margin-top: 0;
+}
+
+.stat-card {
+  flex: 1 1 calc(33.333% - 20px); /* 3 cartes par ligne sur desktop */
+  max-width: 300px;
+  text-align: center;
+  margin-bottom: 20px;
+  border-radius: 12px;
+}
+
+.stat-icon {
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+/* Couleurs des cartes */
+.gradient-card {
+  background: linear-gradient(45deg, rgba(255, 111, 97, 0.68), rgba(255, 204, 92, 0.77));
+}
+
+.card-yellow {
+  background: linear-gradient(45deg, rgba(144, 188, 225, 0.59), rgba(239, 145, 217, 0.3));
+}
+
+.card-blue {
+  background: linear-gradient(45deg, rgba(144, 188, 225, 0.59), rgba(172, 183, 239, 0.43));
+}
+
+.card-purple {
+  background: linear-gradient(45deg, rgba(133, 20, 75, 0.4), rgba(255, 64, 129, 0.39));
+}
+
+/* Style du spacer */
+.spacer {
+  display: block;
+  height: 10px;
+}
+
+/* Responsivité : petits écrans (mobile) */
+@media (max-width: 768px) {
+  .stat-card {
+    flex: 1 1 100%; /* Une carte par ligne sur petit écran */
+  }
+  .centered-card {
+    padding: 10px;
+    margin-top: 30px;
+  }
+}
+
+/* Responsivité : tablettes */
+@media (max-width: 1024px) {
+  .stat-card {
+    flex: 1 1 calc(50% - 20px); /* Deux cartes par ligne sur tablette */
+  }
+  .centered-card {
+    margin-top: 100px;
+  }
+}
+
+/* Toolbar customization */
+.toolbar {
+  display: flex;
+  justify-content: center; /* Centrer horizontalement */
+  align-items: center; /* Centrer verticalement */
+  padding: 10px 0;
+}
+
+/* Container for toolbar buttons */
+.button-container {
+  display: flex;
+  justify-content: space-between; /* Espace les boutons sur la même ligne */
+  align-items: center;
+  width: 100%;
+  max-width: 500px; /* Limite la taille de la zone des boutons */
+  margin: 0 auto; /* Centre le container si nécessaire */
+}
+
+/* Boutons avec icônes */
+button.Ajouterpatient {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px; /* Ajoute un peu de padding autour des icônes */
+  transition: background-color 0.3s, transform 0.2s; /* Animation de l'outline */
+  font-size: 14px;
+}
+
+button.Ajouterpatient:hover {
+  background-color: rgba(1, 8, 19, 0.35); /* Change la couleur d'arrière-plan au survol */
+  transform: scale(1.05); /* Agrandit légèrement au survol */
+}
+
+.mat-icon {
+  font-size: 18px; /* Ajuste la taille de l'icône sur card */
+  color: rgb(6, 50, 116); /* Même couleur que le contour */
+}
+
+/* Icones dans les boutons avec bordure arrondie */
+.icon-bordered {
+  font-size: 24px;
+  border-radius: 50%;
+  padding: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #063274;
+}
+
+/* Conteneur des boutons pour mobile */
+@media (max-width: 768px) {
+  .button-container {
+    flex-direction: row; /* Change de colonne à ligne */
+    justify-content: space-around; /* Espace égal autour des boutons */
+    align-items: center; /* Aligne les éléments au centre verticalement */
+    width: 100%; /* S'assure que le conteneur prend toute la largeur disponible */
+    gap: 10px; /* Espace entre les boutons */
+    display: flex;
+  }
+
+  button.Ajouterpatient {
+    padding: 8px; /* Ajuste le padding pour éviter que les boutons paraissent trop grands */
+    font-size: 12px; /* Réduit la taille de la police pour mobile */
+  }
+
+  .mat-icon {
+    font-size: 24px; /* Ajuste la taille de l'icône pour mobile */
+  }
+}
+
+/* Pour les écrans plus grands */
+@media (min-width: 769px) {
+  .button-container {
+    flex-direction: row;
+    gap: 20px;
+  }
+}
+
+
+.content-container {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+}
+
+.news-card {
+  flex: 2;
+}
+
+.news-card img {
+  width: 100%;
+  height: auto;
+}
+
+.news-card .category {
+  color: #666;
+  font-size: 0.9em;
+  margin-bottom: 5px;
+}
+
+.news-card h2 {
+  font-size: 1.2em;
+  margin: 0;
+  color: #003366;
+}
+
+.action-card {
+  flex: 1;
+  background-color: #f0f7ff;
+}
+
+.action-card mat-card-title {
+  color: #003366;
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.action-card .mat-nav-list {
+  padding-top: 0;
+}
+
+.action-card .mat-list-item {
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.action-card .mat-icon {
+  color: #003366;
+  margin-right: 10px;
+}
+
+.action-card button {
+  width: 100%;
+  margin-top: 15px;
+  color: #003366;
+  border-color: #003366;
+}
+
+.action-card button .mat-icon {
+  margin-right: 5px;
+}
