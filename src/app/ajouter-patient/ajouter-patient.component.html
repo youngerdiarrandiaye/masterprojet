@@ -1,59 +1,50 @@
-<div>
-  <h2>Ajouter un Patient</h2>
+<div class="form-container">
+  <div class="card">
+    <h2>Ajouter Patient</h2>
+    <form [formGroup]="patientForm" (ngSubmit)="ajouterPatient()">
+      <div class="input-group">
+        <div class="input-item">
+          <label for="nomComplet">Nom Complet</label>
+          <input id="nomComplet" formControlName="nomComplet" required>
+          <div *ngIf="patientForm.get('nomComplet')?.invalid && patientForm.get('nomComplet')?.touched" class="error-message">
+            Nom complet requis.
+          </div>
+        </div>
 
-  <form (ngSubmit)="ajouterPatient()">
-    <div>
-      <label for="nomComplet">Nom Complet:</label>
-      <input
-        type="text"
-        id="nomComplet"
-        [(ngModel)]="patient.nomComplet"
-        name="nomComplet"
-        required>
-    </div>
+        <div class="input-item">
+          <label for="dateNaissance">Date de Naissance</label>
+          <input id="dateNaissance" type="date" formControlName="dateNaissance" required>
+          <div *ngIf="patientForm.get('dateNaissance')?.invalid && patientForm.get('dateNaissance')?.touched" class="error-message">
+            Date de naissance requise.
+          </div>
+        </div>
+      </div>
 
-    <div>
-      <label for="dateNaissance">Date de Naissance:</label>
-      <input
-        type="date"
-        id="dateNaissance"
-        [(ngModel)]="patient.dateNaissance"
-        name="dateNaissance"
-        required>
-    </div>
+      <div>
+        <label for="sexe">Sexe</label>
+        <select id="sexe" formControlName="sexe">
+          <option value="Féminin">Féminin</option>
+          <option value="Masculin">Masculin</option>
+          <option value="Autre">Autre</option>
+        </select>
+      </div>
 
-    <div>
-      <label for="sexe">Sexe:</label>
-      <select
-        id="sexe"
-        [(ngModel)]="patient.sexe"
-        name="sexe"
-        required>
-        <option value="Féminin">Féminin</option>
-        <option value="Masculin">Masculin</option>
-      </select>
-    </div>
+      <div class="input-group">
+        <div class="input-item">
+          <label for="numeroTelephone">Numéro de Téléphone</label>
+          <input id="numeroTelephone" formControlName="numeroTelephone" required>
+          <div *ngIf="patientForm.get('numeroTelephone')?.invalid && patientForm.get('numeroTelephone')?.touched" class="error-message">
+            Numéro de téléphone requis et doit avoir 9 chiffres.
+          </div>
+        </div>
 
-    <div>
-      <label for="numeroTelephone">Numéro de Téléphone:</label>
-      <input
-        type="tel"
-        id="numeroTelephone"
-        [(ngModel)]="patient.numeroTelephone"
-        name="numeroTelephone"
-        required>
-    </div>
+        <div class="input-item">
+          <label for="adresse">Adresse</label>
+          <input id="adresse" formControlName="adresse">
+        </div>
+      </div>
 
-    <div>
-      <label for="adresse">Adresse:</label>
-      <input
-        type="text"
-        id="adresse"
-        [(ngModel)]="patient.adresse"
-        name="adresse"
-        required>
-    </div>
-
-    <button type="submit">Ajouter Patient</button>
-  </form>
+      <button type="submit" [disabled]="patientForm.invalid" (click)="showToasterSuccess()">Ajouter Patient</button>
+    </form>
+  </div>
 </div>

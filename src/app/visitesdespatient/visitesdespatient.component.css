@@ -1,0 +1,16 @@
+
+.container {
+  width: 80%;
+  margin: auto;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #0C419AFF;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.mat-card {
+  background-color: #B00055FF;
+  opacity: 0.9;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+

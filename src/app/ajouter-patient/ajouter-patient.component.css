@@ -1,0 +1,73 @@
+/* Styles généraux pour le conteneur du formulaire */
+.form-container {
+  display: flex;
+  justify-content: center; /* Centrer le contenu horizontalement */
+  align-items: flex-start; /* Alignement en haut */
+  height: 100vh; /* Prendre toute la hauteur de la vue */
+  padding: 20px; /* Espacement interne */
+  background-color: #f5f5f5; /* Couleur de fond douce */
+}
+
+/* Styles pour les cartes */
+.card {
+  background-color: #fff; /* Couleur de fond de la carte */
+  border-radius: 8px; /* Coins arrondis */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre portée */
+  padding: 20px; /* Espacement intérieur */
+  max-width: 400px; /* Largeur maximale de la carte */
+  width: 100%; /* Largeur pleine sur petits écrans */
+  box-sizing: border-box; /* Inclure padding et border dans la largeur */
+}
+
+/* Styles pour le groupe d'entrées */
+.input-group {
+  display: flex; /* Utiliser flexbox pour aligner les éléments */
+  flex-wrap: wrap; /* Permettre à des éléments de se déplacer sur la ligne suivante */
+  gap: 10px; /* Espacement entre les champs */
+}
+
+/* Styles pour les éléments d'entrée individuels */
+.input-item {
+  flex: 1; /* Chaque élément prend un espace égal */
+  min-width: 200px; /* Largeur minimum pour éviter que les champs deviennent trop petits */
+}
+
+/* Styles pour les champs de formulaire */
+input, select {
+  width: 100%; /* Largeur pleine */
+  padding: 10px; /* Espacement intérieur */
+  margin: 10px 0; /* Espacement vertical */
+  border: 1px solid #ccc; /* Bordure */
+  border-radius: 4px; /* Coins arrondis */
+}
+
+/* Styles pour les messages d'erreur */
+.error-message {
+  color: red; /* Couleur rouge pour les erreurs */
+  font-size: 12px; /* Taille de police pour les erreurs */
+  margin-top: -8px; /* Pour rapprocher le message de l'input */
+  margin-bottom: 10px; /* Espacement sous le message d'erreur */
+}
+
+/* Bouton de soumission */
+button {
+  background-color: #4CAF50; /* Couleur de fond du bouton */
+  color: white; /* Couleur du texte */
+  border: none; /* Pas de bordure */
+  border-radius: 4px; /* Coins arrondis */
+  padding: 10px 15px; /* Espacement intérieur */
+  cursor: pointer; /* Curseur en forme de main */
+  transition: background-color 0.3s; /* Transition douce pour le changement de couleur */
+  width: 100%; /* Largeur pleine */
+}
+
+button:hover {
+  background-color: #45a049; /* Couleur du bouton au survol */
+}
+
+/* Media Queries pour rendre le formulaire responsive */
+@media (max-width: 600px) {
+  .input-group {
+    flex-direction: column; /* Passer en colonne sur petits écrans */
+  }
+}

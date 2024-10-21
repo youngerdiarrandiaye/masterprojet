@@ -1,0 +1,123 @@
+.search-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  padding: 0 10px; /* Ajouté pour un peu de marge sur les côtés sur petits écrans */
+}
+
+.search-card {
+  width: 85%;
+  max-width: 1200px;
+  padding: 40px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.36);
+}
+
+.search-title {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #b00055;
+}
+
+.search-instructions {
+  margin-bottom: 20px;
+  font-size: 18px;
+  color: #b00055;
+}
+
+.criteria-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+/* Cartes des critères */
+.form-card {
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.29);
+  display: flex;
+  align-items: center;
+  height: 100%;
+  background: rgba(214, 231, 242, 0.38);
+}
+
+.form-card-content {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex: 1;
+}
+
+.form-field {
+  width: 100%;
+}
+
+.mat-icon {
+  font-size: 22px;
+  color: #b00055;
+}
+
+/* Champ de localisation */
+.location-field {
+  width: 100%;
+  margin-bottom: 10px;
+  background: rgba(214, 231, 242, 0.38);
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.29);
+  display: flex;
+}
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.search-button {
+  background-color: #063274;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.36);
+  color: white;
+  width: 50%;
+  align-content: center;
+  display: block;
+  margin: 0 auto; /* Cela permet de centrer le bouton horizontalement */
+}
+
+/* Media queries pour mobiles et tablettes */
+@media (max-width: 768px) {
+  .criteria-grid {
+    grid-template-columns: 1fr; /* Une seule colonne sur les petits écrans */
+  }
+
+  .form-card {
+    padding: 15px;
+  }
+
+  .search-title {
+    font-size: 20px;
+  }
+
+  .search-instructions {
+    font-size: 16px;
+  }
+
+  .search-button {
+    width: 100%; /* Le bouton prend toute la largeur sur mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .search-card {
+    padding: 20px; /* Réduction du padding sur très petits écrans */
+  }
+
+  .form-card-content {
+    flex-direction: column; /* Les icônes et champs seront alignés en colonne */
+    align-items: flex-start;
+  }
+
+  .mat-icon {
+    font-size: 18px; /* Réduction de la taille de l'icône */
+  }
+}

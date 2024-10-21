@@ -1,0 +1,41 @@
+<div class="search-container">
+  <mat-card>
+    <mat-card-title>Rechercher une déclaration de grossesse</mat-card-title>
+    <mat-form-field appearance="outline">
+      <mat-label>Code de déclaration</mat-label>
+      <input matInput [(ngModel)]="searchCode" placeholder="Entrez le code de déclaration">
+      <button mat-icon-button matSuffix (click)="rechercherDeclaration()">
+        <mat-icon>search</mat-icon>
+      </button>
+    </mat-form-field>
+  </mat-card>
+</div>
+
+<!-- Résultats de la recherche -->
+<div *ngIf="declaration" class="results-container">
+  <mat-card class="declaration-card">
+    <mat-card-header>
+      <mat-card-title></mat-card-title> <!-- Afficher le nom complet du patient -->
+    </mat-card-header>
+
+    <mat-card-content>
+      <p><mat-icon color="primary">badge</mat-icon> Nom du patient : {{ patient?.nomComplet }}</p>
+      <p><mat-icon color="primary">birthday</mat-icon> DateNaissancedu patient : {{ patient?.dateNaissance}}</p>
+      <p><mat-icon color="primary">phone</mat-icon> Téléphone : {{ patient?.numeroTelephone }}</p>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <button mat-raised-button color="primary" (click)="validerDeclaration(declaration)">
+        <mat-icon>check_circle</mat-icon> Valider
+      </button>
+      <button mat-raised-button color="accent" (click)="passerAConsultation(declaration)">
+        <mat-icon>medical_services</mat-icon> Passer à la consultation
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+
+<!-- Message d'erreur si aucune déclaration trouvée -->
+<div *ngIf="!declaration && searchAttempted">
+  <p>Aucune déclaration trouvée avec ce code.</p>
+</div>

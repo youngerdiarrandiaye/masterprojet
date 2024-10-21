@@ -1,25 +1,34 @@
-<div>
-  <h2>Déclaration de grossesse</h2>
+<div class="declaration-container">
+  <div class="form-card">
+    <h2>Déclaration de grossesse</h2>
 
-  <form (ngSubmit)="faireDeclarationGrossesse()">
-    <label>Sélectionner un patient :</label>
-    <select [(ngModel)]="patientId" name="patient" required>
-      <option value="" disabled>Sélectionner un patient</option>
-      <option *ngFor="let patient of patients" [value]="patient.id">{{ patient.nomComplet }}</option>
-    </select>
+    <form (ngSubmit)="faireDeclarationGrossesse()">
+      <div class="form-group">
+        <label>Sélectionner un patient :</label>
+        <select [(ngModel)]="patientId" name="patient" required>
+          <option value="" disabled>Sélectionner un patient</option>
+          <option *ngFor="let patient of patients" [value]="patient.id">{{ patient.nomComplet }}</option>
+        </select>
+      </div>
 
-    <label>Date des dernières règles :</label>
-    <input type="date" [(ngModel)]="dateDernieresRegles" name="dateDernieresRegles" required>
+      <div class="form-group">
+        <label>Date des dernières règles :</label>
+        <input type="date" [(ngModel)]="dateDernieresRegles" name="dateDernieresRegles" required>
+      </div>
 
-    <button type="submit">Déclarer la grossesse</button>
-  </form>
+      <button type="submit" class="submit-btn">Déclarer la grossesse</button>
+    </form>
 
-  <div *ngIf="visites.length > 0">
-    <h3>Visites planifiées :</h3>
-    <ul>
-      <li *ngFor="let visite of visites">
-        {{ visite.date | date:'dd/MM/yyyy' }} - {{ visite.type }}
-      </li>
-    </ul>
+    <div *ngIf="visites.length > 0" class="visites-planifiees">
+      <h3>Visites planifiées :</h3>
+      <ul>
+        <li *ngFor="let visite of visites">
+          {{ visite.date | date:'dd/MM/yyyy' }} - {{ visite.type }}
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="image-container">
   </div>
 </div>

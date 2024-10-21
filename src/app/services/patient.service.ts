@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Patient, Visite} from "../model/patient.model";
-import {Observable} from "rxjs";
+import {Observable, of, throwError} from "rxjs";
 import {DeclarationGrossesse} from "../model/declarationGrossesse.model";
+import {catchError, map} from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
@@ -26,6 +27,51 @@ export class PatientService {
   // Obtenir la liste des déclarations de grossesse
   obtenirDeclarations(): Observable<DeclarationGrossesse[]> {
     return this.http.get<DeclarationGrossesse[]>(`${this.apiUrl}/declarations`);
+  }
+
+  getPatientById(patientId: number): Observable<Patient> {  // Assurez-vous que patientId est string ici
+    return this.http.get<Patient>(`${this.apiUrl}/patients/${patientId}`).pipe(
+      catchError((error) => {
+        console.error('Erreur lors de la récupération du patient', error);
+        return throwError(error); // Propager l'erreur
+      })
+    );
+  }
+
+
+  getDeclarationByCode(code: string): Observable<DeclarationGrossesse | null> {
+    // Pas de trim ou de lowercase ici
+    return this.http.get<DeclarationGrossesse[]>(`${this.apiUrl}/declarations?codeDeclarationGrossesse=${code}`)
+      .pipe(
+        map((declarations: DeclarationGrossesse[]) => {
+          console.log('Déclarations récupérées:', declarations);
+          return declarations.length > 0 ? declarations[0] : null;
+        }),
+        catchError((error) => {
+          console.error('Erreur lors de la récupération de la déclaration :', error);
+          return of(null); // Retourner null en cas d'erreur
+        })
+      );
+  }
+
+  getDeclarationById(id: number): Observable<DeclarationGrossesse[]> {
+    return this.http.get<DeclarationGrossesse[]>(`${this.apiUrl}/declarations?id=${id}`).pipe(
+      catchError((error) => {
+        console.error('Erreur lors de la récupération de la déclaration :', error);
+        return throwError(error);
+      })
+    );
+  }
+
+  updateDeclaration(declaration: DeclarationGrossesse): Observable<DeclarationGrossesse> {
+    console.log('Mise à jour de la déclaration :', declaration); // Vérification des données avant l'appel API
+    // Utiliser le query paramètre id pour la mise à jour
+    return this.http.put<DeclarationGrossesse>(`${this.apiUrl}/declarations/${declaration.id}`, declaration).pipe(
+      catchError((error) => {
+        console.error('Erreur lors de la mise à jour de la déclaration :', error);
+        return throwError(error);
+      })
+    );
   }
 
   // Calculer la date prévue d'accouchement

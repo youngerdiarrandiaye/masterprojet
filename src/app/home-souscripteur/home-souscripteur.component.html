@@ -2,14 +2,21 @@
   <mat-card class="centered-card">
     <mat-card-header class="toolbar">
       <div class="button-container">
-        <button mat-icon-button aria-label="Nouveau patient" routerLink="/ajouter-patient" style="font-size: 14px">
-          <mat-icon class="material-icons icon-bordered" style="color: rgb(254, 0, 161);">local_hotel</mat-icon>
-          <mat-tooltip matTooltip="Nouveau patient" >Patient</mat-tooltip>
+        <button mat-icon-button aria-label="Nouveau patient" class="patient-icone" routerLink="/ajouter-patient" style="font-size: 14px">
+         <!-- <mat-icon class="material-icons icon-bordered" style="color: rgb(254, 0, 161);">local_hotel</mat-icon>-->
+          <mat-tooltip matTooltip="Nouveau patient" ></mat-tooltip>
         </button>
-        <button mat-icon-button aria-label="Notifications" routerLink="/declaration-grossesse"style="font-size: 14px;margin-bottom: 24px">
-          <mat-icon class="material-icons icon-bordered" style="color: rgb(254, 0, 161);">pregnant_woman</mat-icon>
-          <mat-tooltip matTooltip="Déclarer une grossesse">Déclarer grossesse</mat-tooltip>
+        <span>Nouveau Patient</span>
+        <button mat-icon-button aria-label="Nouveau patient" class="doctor-icone" routerLink="/professionel" style="font-size: 14px">
+         <!-- <mat-icon class="material-icons icon-bordered" style="color: rgb(254, 0, 161);"></mat-icon>-->
+          <mat-tooltip matTooltip="Nouveau patient" ></mat-tooltip>
         </button>
+        <span>Trouver un professionnel de santé</span>
+        <button mat-icon-button aria-label="Notifications" class="grossesse-icone" routerLink="/declaration-grossesse"style="font-size: 14px;">
+          <!--<mat-icon class="material-icons icon-bordered" style="color: rgb(254, 0, 161);">pregnant_woman</mat-icon>-->
+          <mat-tooltip matTooltip="Déclarer une grossesse"></mat-tooltip>
+        </button>
+        <span>Déclarer grossesse</span>
       </div>
     </mat-card-header>
     <mat-card-content>
@@ -17,67 +24,68 @@
         <!-- Carte 1 -->
         <mat-card class="stat-card gradient-card card-yellow">
           <mat-card-header>
-            <mat-icon class="stat-icon">local_hospital</mat-icon>
-            <mat-card-title>Patient en Traitement</mat-card-title>
+            <mat-icon class="material-icons icon-bordered-card" style="color: rgb(176,0,85);">local_hospital</mat-icon>
           </mat-card-header>
           <mat-card-content>
-            <p>Contenu statistique 1</p>
+            <p>Patient en Traitement</p>
           </mat-card-content>
         </mat-card>
 
         <!-- Carte 2 -->
         <mat-card class="stat-card gradient-card card-blue">
           <mat-card-header>
-            <mat-icon class="stat-icon">trending_down</mat-icon>
-            <mat-card-title>Statistique 2</mat-card-title>
+            <mat-icon class="material-icons icon-bordered-card" style="color: rgb(176,0,85);">sync</mat-icon>
           </mat-card-header>
           <mat-card-content>
-            <p>Contenu statistique 2</p>
+            <p>Demande en cours</p>
           </mat-card-content>
         </mat-card>
 
         <!-- Carte 3 -->
         <mat-card class="stat-card gradient-card card-purple">
           <mat-card-header>
-            <mat-icon class="stat-icon">insert_chart</mat-icon>
-            <mat-card-title>Statistique 3</mat-card-title>
+            <mat-icon class="material-icons icon-bordered-card" style="color: rgb(176,0,85);">calendar_today</mat-icon>
           </mat-card-header>
           <mat-card-content>
-            <p>Contenu statistique 3</p>
+            <p>Calendrier des visites</p>
           </mat-card-content>
         </mat-card>
       </div>
     </mat-card-content>
   </mat-card>
-</div>
-<div class="content-container">
-  <mat-card class="news-card">
-    <img mat-card-image src="assets/images/banner.jpg" alt="Doctor with patients">
-    <mat-card-content>
-      <p class="category">Aide à la pratique/Services</p>
-      <h2>PCO-TND : quels changements dans la rémunération des professionnels libéraux ?</h2>
-    </mat-card-content>
-  </mat-card>
+  <div class="content-container">
+    <mat-card class="news-card">
+      <picture>
+        <source media='(min-width:0px)' srcset="https://material.angular.io/assets/img/examples/shiba2.jpg">
+        <img mat-card-image src="" alt="Photo of a Shiba Inu">
+      </picture>
+      <mat-card-content>
+        <p class="category">Aide à la pratique/Services</p>
+        <h2>PCO-TND : quels changements dans la rémunération des professionnels libéraux ?</h2>
+      </mat-card-content>
+    </mat-card>
 
-  <mat-card class="action-card">
-    <mat-card-header>
-      <mat-card-title>Que faire en cas de...</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <mat-nav-list>
-        <a mat-list-item href="#">
+    <mat-card class="action-card">
+      <mat-card-header>
+        <mat-card-title>Que faire en cas de...</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-nav-list>
+          <a mat-list-item href="#">
+            <mat-icon>arrow_right</mat-icon>
+            <span>Transmission de feuille de soins papier ou de justificatif</span>
+          </a>
+          <a mat-list-item href="#">
+            <mat-icon>arrow_right</mat-icon>
+            <span>Question sur la télétransmission</span>
+          </a>
+        </mat-nav-list>
+        <button mat-stroked-button color="primary">
           <mat-icon>arrow_right</mat-icon>
-          <span>Transmission de feuille de soins papier ou de justificatif</span>
-        </a>
-        <a mat-list-item href="#">
-          <mat-icon>arrow_right</mat-icon>
-          <span>Question sur la télétransmission</span>
-        </a>
-      </mat-nav-list>
-      <button mat-stroked-button color="primary">
-        <mat-icon>arrow_right</mat-icon>
-        Autre demande
-      </button>
-    </mat-card-content>
-  </mat-card>
+          Autre demande
+        </button>
+      </mat-card-content>
+    </mat-card>
+  </div>
 </div>
+

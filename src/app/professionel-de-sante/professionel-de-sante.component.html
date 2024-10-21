@@ -1,1 +1,44 @@
-<p>professionel-de-sante works!</p>
+<div class="search-container">
+  <mat-card class="search-card">
+    <h2 class="search-title">Je recherche un professionnel de santé :</h2>
+    <p class="search-instructions">Je renseigne au moins 1 des 3 critères ci-dessous :</p>
+
+    <div class="criteria-grid">
+      <!-- Input pour le nom du professionnel -->
+      <mat-card class="form-card">
+        <div class="form-card-content">
+          <mat-icon>person</mat-icon>
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Prenom</mat-label>
+            <input matInput [(ngModel)]="nom" placeholder="Ex. : Fatou, Assane Ndiaye">
+          </mat-form-field>
+        </div>
+      </mat-card>
+
+      <!-- Input pour la profession -->
+      <mat-card class="form-card">
+        <div class="form-card-content">
+          <mat-icon>medical_services</mat-icon>
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Profession</mat-label>
+            <input matInput [(ngModel)]="profession" placeholder="Ex. : Ophtalmologiste">
+            <mat-hint><a href="#">Liste des professions</a></mat-hint>
+          </mat-form-field>
+        </div>
+      </mat-card>
+
+    </div>
+
+    <!-- Input pour la localisation -->
+    <mat-form-field appearance="outline" class="location-field">
+      <mat-label>Où ?</mat-label>
+      <input matInput [(ngModel)]="commune" placeholder="Ex. : Dakar, Liberté 6">
+    </mat-form-field>
+
+    <!-- Bouton de recherche -->
+    <button mat-raised-button color="primary" class="search-button" (click)="onSearch()">
+      Rechercher
+      <mat-icon>search</mat-icon>
+    </button>
+  </mat-card>
+</div>
