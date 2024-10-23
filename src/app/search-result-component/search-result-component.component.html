@@ -3,11 +3,13 @@
     <span class="index-badge">{{ professionnels.length }}</span>
     <b>résultats correspondent à votre recherche</b>
   </div>
+
   <mat-card *ngFor="let professionnel of professionnels; let i = index" class="professional-card">
     <div class="professional-header">
       <mat-icon style="color: #B00055FF">person</mat-icon>
       <span class="professional-name">{{ professionnel.nom }} {{ professionnel.prenom }}</span>
     </div>
+
     <div class="professional-info">
       <div>
         <mat-icon style="color: #B00055FF">female</mat-icon> {{ professionnel.profession }}

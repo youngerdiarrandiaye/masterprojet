@@ -1,16 +1,83 @@
-
-.container {
-  width: 80%;
-  margin: auto;
-  padding: 20px;
-  border-radius: 10px;
-  background-color: #0C419AFF;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+.search-container {
+  background-color: #f0f0f0; /* Fond gris */
+  padding: 16px;
+  border-radius: 8px;
+  max-width: 90%; /* Ajustement à 90% pour occuper plus d'espace sur mobile */
+  margin: 20px auto;
 }
 
-.mat-card {
-  background-color: #B00055FF;
-  opacity: 0.9;
-  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+.search-input {
+  width: 100%; /* Prendre toute la largeur */
+  max-width: none; /* Supprime la largeur max pour les petits écrans */
+  margin-bottom: 20px;
+  padding: 10px; /* Ajout de padding pour le confort */
+  font-size: 16px; /* Taille de police plus grande pour lisibilité */
 }
 
+.results-container .declaration-card {
+  margin: 16px 0;
+  padding: 16px;
+  max-width: 100%; /* Permet à la carte de déclaration d'occuper toute la largeur */
+}
+
+.mat-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; /* Permet aux éléments de s'ajuster en cas d'espace réduit */
+}
+
+.status-icon {
+  font-size: 24px;
+}
+
+.status-icon.valide {
+  color: green; /* Couleur pour les déclarations validées */
+}
+
+.status-icon.en-attente {
+  color: orange; /* Couleur pour les déclarations en attente */
+}
+
+.status-icon.rejetee {
+  color: #ff0000; /* Couleur pour les déclarations rejetées */
+}
+
+.action-buttons {
+  display: flex;
+  flex-wrap: wrap; /* Permet aux boutons de passer à la ligne si nécessaire */
+  justify-content: space-between;
+  margin-top: 10px; /* Espacement au-dessus des boutons */
+}
+
+.small-button {
+  margin: 4px; /* Espacement plus léger entre les boutons */
+  font-size: 12px;
+  padding: 4px 8px;
+}
+
+mat-card-content p {
+  margin-bottom: 8px;
+}
+
+.error-message {
+  color: red;
+  font-weight: bold;
+  text-align: center;
+}
+
+.main-card {
+  background-color: rgba(6, 50, 116, 0.1); /* Couleur de fond avec opacité */
+  border-radius: 8px; /* Coins arrondis pour un effet moderne */
+  padding: 16px; /* Espacement interne */
+}
+
+.results-container {
+  margin-top: 16px; /* Espacement entre le champ de recherche et les résultats */
+}
+
+.declaration-card {
+  background-color: rgba(176, 0, 85, 0.1); /* Couleur pour la carte de déclaration avec opacité */
+  border-radius: 8px; /* Coins arrondis pour un effet moderne */
+  padding: 16px; /* Espacement interne */
+}

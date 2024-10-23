@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {DeclarationGrossesse, Status} from "../model/declarationGrossesse.model";
 import {PatientService} from "../services/patient.service";
 import {Patient} from "../model/patient.model";
+import {NotificationService} from "../services/notification.service";
+import {Route, Router} from "@angular/router";
 
 
 @Component({
@@ -16,30 +18,23 @@ export class VisitesdespatientComponent implements OnInit{
   searchAttempted: boolean = false; // Indiquer si la recherche a été faite
   patient: Patient | null = null;
 
-  constructor(private declarationService: PatientService) {}
+  constructor(private declarationService: PatientService,private notifyService : NotificationService,private route:Router) {}
   ngOnInit(): void {
-    this.loadDeclarations(); // Charger les déclarations au démarrage
   }
 
-  loadDeclarations(): void {
-    // Exemple d'une méthode pour charger les déclarations
-    this.declarationService.obtenirDeclarations().subscribe(
-      (data) => {
-        this.declarations = data;
-        // Valider la première déclaration si elle existe
-        if (this.declarations.length > 0) {
-          this.validerDeclaration(this.declarations[0]); // Valider la première déclaration
-        }
-      },
-      (error) => {
-        console.error('Erreur lors du chargement des déclarations', error);
-      }
-    );
+
+  notifinfo(){
+    this.notifyService.showInfo("La date présumée de l’accouchement peut être également estimée en comptant 9 mois plus 7 à 14 jours après le premier jour des dernières règles.", "Estimation de la date présumée de l’accouchement")
+  }
+  showToasterSuccess(){
+    this.notifyService.showSuccess("Déclaration valider avec succès!!", "Merci")
+  }
+  showToasterRejet(){
+    this.notifyService.showWarning("Déclaration Rejeter avec succès!!", "Merci")
   }
   // Rechercher une déclaration par code
   rechercherDeclaration() {
     console.log('Code de recherche:', this.searchCode); // Vérifie la valeur de searchCode
-
     this.searchAttempted = true;
 
     if (this.searchCode) {
@@ -74,10 +69,33 @@ export class VisitesdespatientComponent implements OnInit{
   validerDeclaration(declaration: DeclarationGrossesse) {
     if (declaration) {
       declaration.status = Status.Validee; // Mettre à jour le statut
+      if (declaration.status = Status.Validee)
+      this.showToasterSuccess();
       // Appel à la méthode de création du service
       this.declarationService.updateDeclaration(declaration).subscribe(
         (response) => {
+          declaration.status = Status.Validee;
           console.log('Déclaration créée avec succès', response);
+          // Actions supplémentaires après la création
+        },
+        (error) => {
+          console.error('Erreur lors de la création de la déclaration', error);
+        }
+      );
+    } else {
+      console.warn('Aucune déclaration fournie pour validation.');
+    }
+  }
+
+  // Rejetee une déclaration
+  RejeterDeclaration(declaration: DeclarationGrossesse) {
+    if (declaration) {
+      declaration.status = Status.Rejetee; // Mettre à jour le statut
+      // Appel à la méthode de création du service
+      this.declarationService.updateDeclaration(declaration).subscribe(
+        (response) => {
+          this.showToasterRejet();
+          console.log('Déclaration Rejetee', response);
           // Actions supplémentaires après la création
         },
         (error) => {
@@ -91,10 +109,10 @@ export class VisitesdespatientComponent implements OnInit{
 
   // Passer à la consultation d'un patient déclaré
   passerAConsultation(declaration: DeclarationGrossesse) {
-    // Ici tu rediriges vers la page de consultation du patient déclaré
-    console.log('Passer à la consultation pour', declaration.patientId);
-    // Exemple : router.navigate(['/consultation', declaration.patientId]);
+    this.route.navigate(['/passer-consultation', declaration.patientId]);
+
   }
 
 
+  protected readonly Status = Status;
 }

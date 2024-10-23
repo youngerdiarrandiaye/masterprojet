@@ -1,0 +1,78 @@
+.global-container {
+  background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)); /* Lightened for clarity */
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Softer shadow */
+  background-size: cover;
+  backdrop-filter: blur(8px);
+  opacity: 0.97;
+  border-color:#0c419a ;
+}
+
+.calendar-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 10px;
+}
+
+.visit-card {
+  background-color: rgba(99, 102, 241, 0.08); /* Light blue background */
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s, box-shadow 0.3s;
+}
+
+.visit-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+button {
+  background-color: #F52388; /* Pink color */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-weight: bold;
+  font-size: 14px;
+  transition: background-color 0.3s, transform 0.3s;
+  opacity: 0.9;
+}
+
+button:hover {
+  background-color: #9C69C7; /* Purple hover effect */
+  transform: scale(1.05);
+  opacity: 1;
+}
+
+mat-card-header {
+  background-color: rgba(199, 200, 203, 0.1); /* Light gray */
+  color: #333;
+  border-radius: 8px 8px 0 0;
+  padding: 12px;
+}
+
+mat-card-title {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+mat-card-subtitle {
+  font-size: 12px;
+  color: #666;
+}
+mat-card-title {
+  font-size: 14px; /* Réduit la taille de la police du titre */
+  font-weight: 400; /* Vous pouvez ajuster le poids si nécessaire */
+}
+
+mat-card-subtitle {
+  font-size: 12px; /* Réduit la taille de la police de la sous-titre */
+  color: #666; /* Couleur pour le sous-titre */
+}
+
+.visit-card {
+  padding: 14px; /* Ajustez le padding si nécessaire */
+  font-size: 14px; /* Taille de police par défaut pour le contenu */
+}

@@ -8,6 +8,8 @@ export interface Patient {
   adresse: string;
 }
 export interface Visite {
+  id?: number;
   type: string;
   date: Date;
+  patientId: number;
 }

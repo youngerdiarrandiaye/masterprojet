@@ -2,75 +2,42 @@
 .toolbar {
   display: flex;
   align-items: center;
-  background: #a9b9d5;
+  justify-content: space-between;
+  background: rgba(169, 185, 213, 0.8);
   padding: 0 16px;
 }
 
 /* Logo : adaptabilité */
 .logo {
-  height: 40px;
+  background-image: url('../../assets/images/logo.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: left;
+  width: 360px;
+  height: 360px;
+  margin-right: 570px;
+  margin-top:53px ;
 }
 
-.spacer {
-  flex: 1;
-}
+/* Responsivité pour petits écrans */
+@media (max-width: 768px) {
+  .logo {
+    width: 220px; /* Ajuste la taille pour les petits écrans */
+    height: 230px;
+    margin-top: 10px;
+  }
 
-.footer {
-  background: #a9b9d5;
-  color: rgb(205, 211, 211);
-  padding: 20px;
-  text-align: center;
-}
-
-/* Effet de survol pour les boutons */
-.nav-button:hover {
-  color: #f5f5f5;
-  background-color: #ff03b8;
-}
-
-.nav-button {
-  display: flex;
-  align-items: center;
-  padding: 8px 16px;
-  border-radius: 4px;
-  transition: background-color 0.3s;
-}
-
-/* Responsivité */
-@media (max-width: 1024px) {
-  /* Toolbar : Ajustements pour écrans intermédiaires */
   .toolbar {
     flex-direction: column;
+    padding: 0 8px;
   }
 
   .toolbar img.logo {
-    height: 30px;
-  }
-}
-
-@media (max-width: 768px) {
-  /* Menu latéral et toolbar */
-  .toolbar img.logo {
-    display: none;
-  }
-
-  .nav-button span {
-    display: block; /* afficher
-     le texte dans le menu pour les petits écrans */
-  }
-
-  mat-drawer {
-    width: 250px; /* Taille du menu plus petite sur mobile */
     display: block;
   }
 
-  /* Alignement vertical pour le menu */
   .nav-button {
-    justify-content: center;
-  }
-
-  .toolbar {
-    padding: 0 8px;
+    padding: 6px 12px;
   }
 
   .logout-button {
@@ -78,18 +45,32 @@
   }
 }
 
-@media (max-width: 480px) {
-  /* Mobile extra petit */
-  mat-drawer {
-    width: 200px;
-    display: block;
+/* Responsivité pour grands écrans */
+@media (min-width: 1200px) {
+  .logo {
+    width: 300px;
+    height: 320px;
+    margin-top: 70px;
   }
+}
 
+/* Menu latéral et toolbar */
+@media (max-width: 1024px) {
+  .toolbar img.logo {
+    height: 30px;
+  }
+}
+
+@media (max-width: 480px) {
   .toolbar {
     padding: 0 4px;
   }
 
   .nav-button {
     padding: 4px 8px;
+  }
+
+  mat-drawer {
+    width: 200px;
   }
 }

@@ -26,7 +26,6 @@ export class SearchServiceService {
 
   searchProfessionnels(nom?: string, profession?: string, communeNom?: string): Observable<ProfessionnelDeSante[]> {
     let params: any = {};
-
     // Récupérer toutes les communes et établissements
     return forkJoin([
       this.http.get<Commune[]>(`${this.apiUrl}/communes`),
@@ -46,7 +45,7 @@ export class SearchServiceService {
                 const etablissementNom = etablissement ? etablissement.nom : 'Non spécifié';
                 const communeId = etablissement ? etablissement.communeId : null;
                 const communeNom = communeId !== null ? communeMap.get(communeId) : 'Non spécifié';
-
+                console.error('##########les communes avec leur ID', communeId,communeNom,etablissementNom);
                 return {
                   ...prof,
                   etablissementNom,

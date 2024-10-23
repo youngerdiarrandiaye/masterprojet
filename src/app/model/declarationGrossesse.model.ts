@@ -7,7 +7,7 @@ export interface DeclarationGrossesse {
   status:Status;
 }
 export enum Status {
-  EnAttente = 'en attente',
+  EnAttente = 'en-attente',
   Validee = 'validée',
   Rejetee = 'rejetée'
 }

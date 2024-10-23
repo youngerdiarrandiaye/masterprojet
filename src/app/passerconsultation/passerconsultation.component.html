@@ -1,0 +1,27 @@
+<mat-card class="global-container" style="background-image: url('../../assets/images/17534.jpg'); ">
+  <mat-card-header>
+    <mat-card-title>Informations du patient</mat-card-title>
+    <mat-card-subtitle>ID : {{ patientId }}</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content style="background-image: url('../../assets/images/17534.jpg'); ">
+    <div class="calendar-container">
+      <mat-card *ngFor="let visite of visites" class="visit-card">
+        <mat-card-header>
+          <!-- Icon for the visit type -->
+          <mat-icon matPrefix>event_note</mat-icon> <!-- Example icon -->
+          <mat-card-title>{{ visite.type }}</mat-card-title>
+          <mat-card-subtitle>{{ visite.date | date: 'fullDate' }}</mat-card-subtitle>
+        </mat-card-header>
+
+        <mat-card-actions>
+          <!-- Button with an icon -->
+          <button mat-button color="primary" (click)="passerAConsultation(visite)">
+            <mat-icon>local_hospital</mat-icon> <!-- Medical icon for consultation -->
+             consultation
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </mat-card-content>
+</mat-card>

@@ -1,106 +1,106 @@
 .declaration-container {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #f5f5f5;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin: 20px auto;
-  max-width: 900px;
+  justify-content: space-between; /* Espacement entre le formulaire et l'image */
+  align-items: center; /* Centre les éléments verticalement */
+  background-color: #f5f5f5; /* Couleur de fond légère */
+  padding: 20px; /* Espacement interne */
+  border-radius: 8px; /* Coins arrondis */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre pour profondeur */
+  margin: 20px auto; /* Espacement externe et centrage */
+  max-width: 900px; /* Largeur maximale */
 }
 
 .form-card {
-  flex: 1;
-  background-color: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  flex: 1; /* Permet au formulaire d'occuper l'espace restant */
+  background-color: white; /* Couleur de fond de la carte */
+  padding: 20px; /* Espacement interne */
+  border-radius: 8px; /* Coins arrondis */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre légère */
 }
 
 .form-group {
-  margin-bottom: 15px;
+  margin-bottom: 15px; /* Espacement entre les groupes de champs */
 }
 
 .form-group label {
-  display: block;
-  font-weight: bold;
-  margin-bottom: 5px;
+  display: block; /* Affichage en bloc pour le label */
+  font-weight: bold; /* Met en gras le texte du label */
+  margin-bottom: 5px; /* Espacement sous le label */
 }
 
 .form-group input,
 .form-group select {
-  width: 100%;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 16px;
+  width: 100%; /* Prend 100% de la largeur disponible */
+  padding: 8px; /* Espacement interne */
+  border: 1px solid #ccc; /* Bordure légère */
+  border-radius: 4px; /* Coins arrondis */
+  font-size: 16px; /* Taille de la police */
 }
 
 .submit-btn {
-  background-color: #063274;
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  font-size: 16px;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  background-color: #063274; /* Couleur de fond du bouton */
+  color: white; /* Couleur du texte */
+  border: none; /* Pas de bordure */
+  padding: 10px 15px; /* Espacement interne */
+  font-size: 16px; /* Taille de la police */
+  border-radius: 4px; /* Coins arrondis */
+  cursor: pointer; /* Changement du curseur au survol */
+  transition: background-color 0.3s ease; /* Transition douce pour le survol */
 }
 
 .submit-btn:hover {
-  background-color: #cdd3d3;
+  background-color: #cdd3d3; /* Couleur de fond au survol */
 }
 
 .visites-planifiees {
-  margin-top: 20px;
+  margin-top: 20px; /* Espacement au-dessus des visites planifiées */
 }
 
 .visites-planifiees ul {
-  list-style-type: none;
-  padding: 0;
+  list-style-type: none; /* Pas de puces pour la liste */
+  padding: 0; /* Pas de rembourrage */
 }
 
 .visites-planifiees li {
-  background-color: #e7f3e9;
-  padding: 10px;
-  margin-bottom: 10px;
-  border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #e7f3e9; /* Couleur de fond des visites planifiées */
+  padding: 10px; /* Espacement interne */
+  margin-bottom: 10px; /* Espacement entre les éléments */
+  border-radius: 4px; /* Coins arrondis */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre légère */
 }
 
 .image-container {
-  flex: 1;
-  background-image: url('../../assets/images/declaratiion.jpg');
-  background-size: cover;
-  background-position: center;
-  width: 300px;
-  height: 300px;
-  margin-left: 4px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  flex: 1; /* Permet à l'image de prendre l'espace restant */
+  background-image: url('../../assets/images/declaratiion.jpg'); /* Image de fond */
+  background-size: cover; /* Couvre l'élément */
+  background-position: center; /* Centre l'image */
+  width: 300px; /* Largeur fixe */
+  height: 300px; /* Hauteur fixe */
+  margin-left: 4px; /* Espacement à gauche */
+  border-radius: 8px; /* Coins arrondis */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre pour profondeur */
 }
 
 /* Responsiveness */
 @media (max-width: 768px) {
   .declaration-container {
-    flex-direction: column;
-    align-items: center;
+    flex-direction: column; /* Change la direction en colonne pour mobile */
+    align-items: center; /* Centre les éléments horizontalement */
   }
 
   .form-card {
-    width: 90%;
-    margin:4px;
+    width: 90%; /* Utilise 90% de la largeur du conteneur */
+    margin: 4px; /* Espacement pour le formulaire */
   }
 
   .image-container {
-    width: 100%;
-    height: 500px;
-    margin-bottom: 20px
+    width: 100%; /* Prend toute la largeur */
+    height: 500px; /* Hauteur de l'image pour mobile */
+    margin-bottom: 20px; /* Espacement en bas de l'image */
   }
 
   .submit-btn {
-    width: 100%;
-    padding: 12px;
+    width: 100%; /* Bouton prend toute la largeur */
+    padding: 12px; /* Espacement interne plus grand */
   }
 }

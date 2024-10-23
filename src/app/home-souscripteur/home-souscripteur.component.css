@@ -11,7 +11,145 @@
 .centered-card {
   width: 100%;
   border-radius: 15px;
-  background-color: rgba(229, 225, 228, 0.34);
+  background-color: rgba(176, 0, 85, 0.1);
+  box-shadow: 0 4px 8px rgba(1, 8, 19, 0.24);
+  max-width: 1200px;
+  margin-top: 0; /* Assure qu'il n'y ait pas d'espace au-dessus */
+  padding: 10px; /* Ajoute un padding pour mobile */
+}
+
+/* Style pour les cartes statistiques */
+.cards-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  width: 100%;
+  max-width: 1200px;
+  margin-top: 0;
+}
+
+.stat-card {
+  flex: 1 1 calc(33.333% - 20px); /* 3 cartes par ligne sur desktop */
+  max-width: 300px;
+  text-align: center;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  color: #fff; /* Texte blanc pour contraste */
+}
+
+/* Couleurs des cartes */
+.card-yellow {
+  background: var(--vert-sauge); /* Vert Sauge */
+}
+
+.card-blue {
+  background: var(--bleu-pastel); /* Bleu Pastel */
+}
+
+.card-purple {
+  background: rgba(6, 50, 116, 0.29);
+}
+
+/* Style du spacer */
+.spacer {
+  display: block;
+  height: 10px;
+}
+
+/* Responsivité : petits écrans (mobile) */
+@media (max-width: 768px) {
+  .stat-card {
+    flex: 1 1 100%; /* Une carte par ligne sur petit écran */
+  }
+  .centered-card {
+    margin-top: 30px;
+  }
+}
+
+/* Responsivité : tablettes */
+@media (max-width: 1024px) {
+  .stat-card {
+    flex: 1 1 calc(50% - 20px); /* Deux cartes par ligne sur tablette */
+  }
+  .centered-card {
+    margin-top: 100px;
+  }
+}
+
+/* Toolbar customization */
+.toolbar {
+  display: flex;
+  justify-content: center; /* Centrer horizontalement */
+  align-items: center; /* Centrer verticalement */
+  padding: 10px 0;
+}
+
+/* Container for toolbar buttons */
+.button-container {
+  display: flex;
+  justify-content: space-between; /* Espace les boutons sur la même ligne */
+  align-items: center;
+  width: 100%;
+  max-width: 500px; /* Limite la taille de la zone des boutons */
+  margin: 0 auto; /* Centre le container si nécessaire */
+}
+
+/* Boutons avec icônes */
+button.Ajouterpatient {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px; /* Ajoute un peu de padding autour des icônes */
+  transition: background-color 0.3s, transform 0.2s; /* Animation de l'outline */
+  font-size: 14px;
+}
+
+button.Ajouterpatient:hover {
+  background-color: rgba(6, 50, 116, 0.76); /* Change la couleur d'arrière-plan au survol */
+  transform: scale(1.05); /* Agrandit légèrement au survol */
+  padding: 28px; /* Padding supplémentaire au survol */
+}
+
+.mat-icon {
+  font-size: 18px; /* Ajuste la taille de l'icône sur card */
+  color: rgb(6, 50, 116); /* Même couleur que le contour */
+}
+
+/* Icones dans les boutons avec bordure arrondie */
+.icon-bordered-card {
+  font-size: 24px;
+  border-radius: 50%;
+  padding: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+}
+
+.doctor-icone,
+.patient-icone,
+.grossesse-icone {
+  background-color: #ef91d9;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(1, 8, 19, 0.24);
+  padding: 30px;
+}
+
+  /* Conteneur principal centré et responsive */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  padding: 0; /* Enlève le padding par défaut */
+}
+
+.centered-card {
+  width: 100%;
+  border-radius: 15px;
+  background-color: rgba(176, 0, 85, 0.1);
   box-shadow: 0 4px 8px rgba(1, 8, 19, 0.24);
   max-width: 1200px;
   margin-top: 0; /* Assure qu'il n'y ait pas d'espace au-dessus */
@@ -166,7 +304,6 @@ button.Ajouterpatient:hover {
     align-items: center; /* Aligne les éléments au centre verticalement */
     width: 100%; /* S'assure que le conteneur prend toute la largeur disponible */
     gap: 10px; /* Espace entre les boutons */
-    display: flex;
   }
 
   button.Ajouterpatient {
@@ -186,7 +323,6 @@ button.Ajouterpatient:hover {
     gap: 20px;
   }
 }
-
 
 .content-container {
   display: flex;
@@ -212,12 +348,12 @@ button.Ajouterpatient:hover {
 .news-card h2 {
   font-size: 1.2em;
   margin: 0;
-  color: #003366;
+  color: var(--vert-sauge);
 }
 
 .action-card {
   flex: 1;
-  background-color: #f0f7ff;
+  background-color: var(--bleu-pastel); /* Utilisation du Bleu Pastel */
 }
 
 .action-card mat-card-title {
@@ -250,4 +386,19 @@ button.Ajouterpatient:hover {
 
 .action-card button .mat-icon {
   margin-right: 5px;
+}
+
+/* Couleurs personnalisées */
+:root {
+  --vert-sauge: #B2C2B1;
+  --bleu-pastel: #B0E0E6;
+}
+
+/* Utilisation des couleurs dans le style */
+.centered-card {
+  background-color: rgba(255, 255, 255, 0.49); /* Vert Sauge avec transparence */
+}
+
+.stat-card {
+  border-radius: 12px;
 }

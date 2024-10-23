@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Patient, Visite} from "../model/patient.model";
-import {Observable, of, throwError} from "rxjs";
-import {DeclarationGrossesse} from "../model/declarationGrossesse.model";
-import {catchError, map} from "rxjs/operators";
+import {forkJoin, Observable, of, throwError} from "rxjs";
+import {DeclarationGrossesse, Status} from "../model/declarationGrossesse.model";
+import {catchError, map, switchMap} from "rxjs/operators";
+import {Commune, EtablissementDeSante, ProfessionnelDeSante} from "../model/region.model";
 
 @Injectable({
   providedIn: 'root'
@@ -36,6 +37,11 @@ export class PatientService {
         return throwError(error); // Propager l'erreur
       })
     );
+  }
+  getVisitesByPatientId(patientId: string): Observable<Visite[]> {
+    const url = `${this.apiUrl}/visites?patientId=${patientId}`;
+    console.log('Appel API:', url); // Log de l'URL
+    return this.http.get<Visite[]>(url);
   }
 
 
@@ -82,7 +88,7 @@ export class PatientService {
   }
 
   // Fonction pour planifier les visites prénatales
-  planifierVisites(dateDernieresRegles: Date | string): Visite[] {
+  planifierVisites(dateDernieresRegles: Date | string,patientId: number): Visite[] {
     // Conversion explicite en type Date si une chaîne est fournie
     const dateDDR = new Date(dateDernieresRegles);
     this.visites = []; // Réinitialiser les visites avant d'ajouter les nouvelles
@@ -90,7 +96,7 @@ export class PatientService {
     // Première visite prénatale (6e à 8e semaine)
     const datePremiereVisite = new Date(dateDDR);
     datePremiereVisite.setDate(datePremiereVisite.getDate() + 42); // 6 semaines après DDR
-    this.visites.push({ type: "Première visite prénatale", date: datePremiereVisite });
+    this.visites.push({ type: "Première visite prénatale", date: datePremiereVisite,patientId });
 
     // Visites prénatales ultérieures
     const mois = [3, 5, 6, 7, 8, 9];
@@ -99,19 +105,19 @@ export class PatientService {
       nouvelleDate.setMonth(nouvelleDate.getMonth() + moisAdditionnel);
 
       if (index === 0) {
-        this.visites.push({ type: "Échographie de datation", date: nouvelleDate });
+        this.visites.push({ type: "Échographie de datation", date: nouvelleDate ,patientId});
       } else if (index === 2) {
-        this.visites.push({ type: "Échographie morphologique", date: nouvelleDate });
+        this.visites.push({ type: "Échographie morphologique", date: nouvelleDate ,patientId});
       } else if (index === 5) {
-        this.visites.push({ type: "Échographie du 3ème trimestre", date: nouvelleDate });
+        this.visites.push({ type: "Échographie du 3ème trimestre", date: nouvelleDate,patientId });
       }
-      this.visites.push({ type: `Consultation du mois ${index + 4}`, date: nouvelleDate });
+      this.visites.push({ type: `Consultation du mois ${index + 4}`, date: nouvelleDate,patientId });
     });
 
     // Rendez-vous anesthésiste (8e mois)
     const dateAnesthesiste = new Date(dateDDR);
     dateAnesthesiste.setMonth(dateAnesthesiste.getMonth() + 8);
-    this.visites.push({ type: "Rendez-vous anesthésiste", date: dateAnesthesiste });
+    this.visites.push({ type: "Rendez-vous anesthésiste", date: dateAnesthesiste ,patientId});
 
     // Enregistrer les visites dans JSON Server
     this.enregistrerVisites(this.visites);

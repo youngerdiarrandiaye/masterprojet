@@ -4,6 +4,7 @@
   align-items: center; /* Centre les cartes horizontalement */
   gap: 16px; /* Espacement entre les cartes */
   padding: 16px; /* Espacement interne du conteneur */
+  background-color: rgba(0, 98, 117, 0.1); /* Couleur de fond légère pour le conteneur */
 }
 
 .professional-card {
@@ -12,6 +13,8 @@
   padding: 16px; /* Espacement interne de la carte */
   border-radius: 8px; /* Coins arrondis pour la carte */
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Ombre pour donner un effet de profondeur */
+  background-color: rgba(255, 255, 255, 0.65); /* Couleur de fond des cartes avec transparence */
+  border: 1px solid rgba(176, 0, 85, 0.1); /* Bordure légère */
 }
 
 .professional-header {
@@ -21,7 +24,7 @@
 }
 
 .index-badge {
-  background-color: #b00055; /* Couleur de fond pour l'indice */
+  background-color: #B00055; /* Couleur de fond pour l'indice */
   color: white; /* Couleur du texte */
   border-radius: 50%; /* Arrondit l'indice */
   width: 30px; /* Largeur de l'indice */

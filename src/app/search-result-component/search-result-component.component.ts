@@ -22,7 +22,6 @@ export class SearchResultComponentComponent implements OnInit{
       this.nom = params['nom'] || '';
       this.profession = params['profession'] || '';
       this.commune = params['commune'] || '';
-
       // Appelle la méthode de recherche même si un seul critère est présent
       this.onSearch();
     });
@@ -30,7 +29,6 @@ export class SearchResultComponentComponent implements OnInit{
 
   onSearch(): void {
     this.isLoading = true;
-
     // Rechercher les professionnels en utilisant tous les critères
     this.searchService.searchProfessionnels(this.nom, this.profession, this.commune).subscribe(
       (data: ProfessionnelDeSante[]) => {

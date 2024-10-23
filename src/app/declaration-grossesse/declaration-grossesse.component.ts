@@ -11,14 +11,14 @@ import {DeclarationGrossesse, Status} from "../model/declarationGrossesse.model"
 })
 export class DeclarationGrossesseComponent implements OnInit{
   patients: Patient[] = [];
-  patientId: number | null = null;
+  patientId: number | null = null ;
   dateDernieresRegles: Date | null = null; // Déclaration de la variable
   visites: Visite[] = [];
   declarations: DeclarationGrossesse[] = [];
 
   constructor(private patientService: PatientService) {
     this.patientService.obtenirDeclarations().subscribe((declarations) => {
-      this.declarations = declarations;
+      this.declarations = declarations
     });
   }
 
@@ -39,7 +39,7 @@ export class DeclarationGrossesseComponent implements OnInit{
       if (selectedPatient) {
         const code = this.generateCodeDeclarationGrossesse(selectedPatient.nomComplet);
         const nouvelleDeclaration: DeclarationGrossesse = {
-          id: 0,  // JSON Server générera l'ID automatiquement
+          //id: 0,  // laisse JSON Server générera l'ID automatiquement
           patientId: this.patientId,
           dateDernieresRegles: this.dateDernieresRegles,
           datePrevueAccouchement: datePrevueAccouchement,
@@ -52,7 +52,9 @@ export class DeclarationGrossesseComponent implements OnInit{
             console.log('Déclaration ajoutée avec succès');
             // Vérifiez que dateDernieresRegles n'est pas null avant de l'utiliser
             if (this.dateDernieresRegles) {
-              this.visites = this.patientService.planifierVisites(this.dateDernieresRegles);
+              if (this.patientId != null) {
+                this.visites = this.patientService.planifierVisites(this.dateDernieresRegles, this.patientId);
+              }
               console.log(this.visites); // Affiche les visites dans la console
             }
             // Réinitialiser les champs après l'ajout

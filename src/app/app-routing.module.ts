@@ -11,6 +11,7 @@ import {DeclarationGrossesseComponent} from "./declaration-grossesse/declaration
 import {ProfessionelDeSanteComponent} from "./professionel-de-sante/professionel-de-sante.component";
 import {SearchResultComponentComponent} from "./search-result-component/search-result-component.component";
 import {VisitesdespatientComponent} from "./visitesdespatient/visitesdespatient.component";
+import {PasserconsultationComponent} from "./passerconsultation/passerconsultation.component";
 
 const routes: Routes = [
   {path:"home",component:HomeComponent},
@@ -24,6 +25,7 @@ const routes: Routes = [
   {path:"declaration-grossesse",component:DeclarationGrossesseComponent},
   {path:"search-results",component:SearchResultComponentComponent},
   {path:"visites-patient",component:VisitesdespatientComponent},
+  {path:"passer-consultation/:id",component:PasserconsultationComponent},
 
 
 ];
